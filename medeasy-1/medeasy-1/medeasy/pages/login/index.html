@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+  <title>MedEasy - Login</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="../home-dashboard/js/tailwind-config.js" id="tailwind-config"></script>
+  <style>
+    body { font-family: 'Geist', sans-serif; }
+    .input-field {
+      width: 100%; padding: 12px 16px 12px 48px;
+      border: 1.5px solid #bdcaba; border-radius: 10px;
+      font-size: 15px; outline: none; transition: border-color .2s, box-shadow .2s;
+      background: #fff; color: #0b1c30;
+      box-sizing: border-box;
+    }
+    .input-field:focus { border-color: #006b2c; box-shadow: 0 0 0 3px rgba(0,107,44,.1); }
+    .input-field.error { border-color: #ba1a1a; box-shadow: 0 0 0 3px rgba(186,26,26,.08); }
+    .field-error { font-size: 12px; color: #ba1a1a; margin-top: 4px; display: none; }
+    .field-error.show { display: block; }
+    .blob1 { position:fixed; top:-120px; left:-120px; width:420px; height:420px; background:radial-gradient(circle, rgba(0,107,44,.12) 0%, transparent 70%); border-radius:50%; pointer-events:none; z-index:0; }
+    .blob2 { position:fixed; bottom:-100px; right:-100px; width:360px; height:360px; background:radial-gradient(circle, rgba(107,255,143,.15) 0%, transparent 70%); border-radius:50%; pointer-events:none; z-index:0; }
+  </style>
+</head>
+<body class="bg-background min-h-screen flex items-center justify-center px-4 overflow-hidden">
+  <div class="blob1"></div>
+  <div class="blob2"></div>
+
+  <div class="relative z-10 w-full max-w-md">
+    <!-- Card -->
+    <div class="bg-white rounded-2xl shadow-[0px_8px_40px_rgba(0,107,44,0.12)] border border-outline-variant/30 p-8 md:p-10">
+
+      <!-- Logo -->
+      <div class="flex items-center justify-center gap-3 mb-8">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" style="width:40px;height:40px;" aria-hidden="true">
+          <rect width="48" height="48" rx="10" fill="#16a34a"/>
+          <path d="M19 10h10v10h10v10H29v10H19V30H9V20h10z" fill="#22c55e"/>
+          <path d="M8 30 Q18 18 38 16" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M10 34 Q22 20 40 20" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+        </svg>
+        <span style="font-size:24px;font-weight:700;color:#006b2c;">MedEasy</span>
+      </div>
+
+      <h1 style="font-size:22px;font-weight:700;color:#0b1c30;text-align:center;margin-bottom:4px;">Welcome back</h1>
+      <p style="font-size:14px;color:#3e4a3d;text-align:center;margin-bottom:28px;">Sign in to your healthcare account</p>
+
+      <!-- Error banner -->
+      <div id="auth-error" style="display:none;background:#fff1f1;border:1px solid #ffdad6;border-radius:10px;padding:12px 16px;margin-bottom:20px;font-size:13px;color:#ba1a1a;display:flex;align-items:center;gap:8px;">
+        <span class="material-symbols-outlined" style="font-size:18px;">error</span>
+        <span id="auth-error-text">Invalid email or password.</span>
+      </div>
+
+      <form id="login-form" novalidate>
+        <!-- Email -->
+        <div style="margin-bottom:18px;">
+          <label style="font-size:13px;font-weight:600;color:#0b1c30;display:block;margin-bottom:6px;" for="email">Email address</label>
+          <div style="position:relative;">
+            <span class="material-symbols-outlined" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:20px;color:#6e7b6c;pointer-events:none;">mail</span>
+            <input class="input-field" id="email" type="email" placeholder="you@example.com" autocomplete="email"/>
+          </div>
+          <p class="field-error" id="email-error">Please enter a valid email address.</p>
+        </div>
+
+        <!-- Password -->
+        <div style="margin-bottom:8px;">
+          <label style="font-size:13px;font-weight:600;color:#0b1c30;display:block;margin-bottom:6px;" for="password">Password</label>
+          <div style="position:relative;">
+            <span class="material-symbols-outlined" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:20px;color:#6e7b6c;pointer-events:none;">lock</span>
+            <input class="input-field" id="password" type="password" placeholder="Enter your password" autocomplete="current-password"/>
+            <button type="button" id="toggle-password" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#6e7b6c;display:flex;align-items:center;">
+              <span class="material-symbols-outlined" style="font-size:20px;">visibility</span>
+            </button>
+          </div>
+          <p class="field-error" id="password-error">Password is required.</p>
+        </div>
+
+        <div style="text-align:right;margin-bottom:24px;">
+          <a href="#" style="font-size:13px;color:#006b2c;font-weight:600;text-decoration:none;">Forgot password?</a>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" id="login-btn" style="width:100%;background:#006b2c;color:#fff;font-size:16px;font-weight:700;padding:14px;border-radius:12px;border:none;cursor:pointer;transition:background .2s,transform .1s;display:flex;align-items:center;justify-content:center;gap:8px;">
+          <span class="material-symbols-outlined" style="font-size:20px;">login</span>
+          Sign In
+        </button>
+      </form>
+
+      <!-- Divider -->
+      <div style="display:flex;align-items:center;gap:12px;margin:24px 0;">
+        <div style="flex:1;height:1px;background:#e5eeff;"></div>
+        <span style="font-size:12px;color:#6e7b6c;text-transform:uppercase;letter-spacing:.06em;">or</span>
+        <div style="flex:1;height:1px;background:#e5eeff;"></div>
+      </div>
+
+      <p style="text-align:center;font-size:14px;color:#3e4a3d;">
+        Don't have an account?
+        <a href="../signup/index.html" style="color:#006b2c;font-weight:700;text-decoration:none;margin-left:4px;">Create account</a>
+      </p>
+    </div>
+
+    <p style="text-align:center;font-size:12px;color:#6e7b6c;margin-top:20px;">
+      By signing in you agree to our
+      <a href="#" style="color:#006b2c;">Terms of Service</a> and
+      <a href="#" style="color:#006b2c;">Privacy Policy</a>.
+    </p>
+  </div>
+
+  <script>
+  (function () {
+    'use strict';
+
+    // Redirect if already logged in (active session only)
+    if (localStorage.getItem('me_session') === '1') {
+      window.location.href = '../home-dashboard/index.html';
+    }
+
+    var form      = document.getElementById('login-form');
+    var emailEl   = document.getElementById('email');
+    var passEl    = document.getElementById('password');
+    var toggleBtn = document.getElementById('toggle-password');
+    var authErr   = document.getElementById('auth-error');
+    var authErrTxt= document.getElementById('auth-error-text');
+
+    // Toggle password visibility
+    toggleBtn.addEventListener('click', function () {
+      var isText = passEl.type === 'text';
+      passEl.type = isText ? 'password' : 'text';
+      toggleBtn.querySelector('.material-symbols-outlined').textContent = isText ? 'visibility' : 'visibility_off';
+    });
+
+    function showError(fieldId, errorId) {
+      document.getElementById(fieldId).classList.add('error');
+      document.getElementById(errorId).classList.add('show');
+    }
+    function clearError(fieldId, errorId) {
+      document.getElementById(fieldId).classList.remove('error');
+      document.getElementById(errorId).classList.remove('show');
+    }
+
+    emailEl.addEventListener('input', function () { clearError('email', 'email-error'); authErr.style.display = 'none'; });
+    passEl.addEventListener('input', function ()  { clearError('password', 'password-error'); authErr.style.display = 'none'; });
+
+    function validateEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = emailEl.value.trim();
+      var pass  = passEl.value;
+      var valid = true;
+
+      if (!validateEmail(email)) { showError('email', 'email-error'); valid = false; }
+      if (!pass) { showError('password', 'password-error'); valid = false; }
+      if (!valid) return;
+
+      // Look up registered user
+      var stored = localStorage.getItem('me_user');
+      if (!stored) {
+        authErr.style.display = 'flex'; authErrTxt.textContent = 'No account found. Please sign up first.';
+        return;
+      }
+      var user = JSON.parse(stored);
+      if (user.email.toLowerCase() !== email.toLowerCase() || user.password !== pass) {
+        authErr.style.display = 'flex'; authErrTxt.textContent = 'Invalid email or password.';
+        return;
+      }
+
+      // Mark session active
+      localStorage.setItem('me_session', '1');
+      window.location.href = '../home-dashboard/index.html';
+    });
+  })();
+  </script>
+</body>
+</html>

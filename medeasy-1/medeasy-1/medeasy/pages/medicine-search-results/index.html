@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>MedEasy - Medicine Search</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+<script id="tailwind-config" src="js/tailwind-config.js"></script>
+
+  </head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- Top App Bar -->
+<header class="fixed top-0 left-0 w-full z-50 flex flex-col bg-surface shadow-[0px_4px_20px_rgba(22,163,74,0.05)] pt-safe">
+<div class="flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop h-16">
+<div class="flex items-center gap-md">
+<button class="tap-scale w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+<h1 class="font-display text-h2-mobile md:text-h2 font-bold text-primary flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-7 h-7 flex-shrink-0" aria-hidden="true">
+                <rect width="48" height="48" rx="10" fill="#16a34a"/>
+                <path d="M19 10h10v10h10v10H29v10H19V30H9V20h10z" fill="#22c55e"/>
+                <path d="M8 30 Q18 18 38 16" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+                <path d="M10 34 Q22 20 40 20" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+              </svg>
+              MedEasy
+            </h1>
+</div>
+<div class="flex items-center gap-sm">
+<button class="tap-scale w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="shopping_cart">shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Search Bar Section -->
+<div class="px-container-margin-mobile md:px-container-margin-desktop pb-md">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors" data-icon="search">search</span>
+<input autocomplete="off" class="w-full h-14 pl-12 pr-4 rounded-xl border-none bg-surface-container-low ring-1 ring-outline-variant focus:ring-2 focus:ring-primary transition-all font-body-md text-on-surface outline-none" id="medicine-search-input" placeholder="Search medicines, salts..." type="search" value="Paracetamol"/>
+</div>
+</div>
+<!-- Filter Chips Row -->
+<div class="flex gap-sm px-container-margin-mobile md:px-container-margin-desktop pb-md overflow-x-auto hide-scrollbar" id="filter-chips">
+<button class="flex items-center gap-xs px-md py-sm rounded-full bg-primary-container text-on-primary-container font-caption text-caption whitespace-nowrap shadow-sm">
+                Category <span class="material-symbols-outlined text-[16px]" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</button>
+<button class="flex items-center gap-xs px-md py-sm rounded-full bg-surface ring-1 ring-outline-variant text-on-surface-variant font-caption text-caption whitespace-nowrap hover:bg-surface-container-low transition-colors">
+                Price
+            </button>
+<button class="flex items-center gap-xs px-md py-sm rounded-full bg-surface ring-1 ring-outline-variant text-on-surface-variant font-caption text-caption whitespace-nowrap hover:bg-surface-container-low transition-colors">
+                Availability
+            </button>
+<button class="flex items-center gap-xs px-md py-sm rounded-full bg-surface ring-1 ring-outline-variant text-on-surface-variant font-caption text-caption whitespace-nowrap hover:bg-surface-container-low transition-colors">
+                Prescription
+            </button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="mt-[180px] px-container-margin-mobile md:px-container-margin-desktop max-w-screen-xl mx-auto space-y-md">
+<!-- Results Header -->
+<div class="flex justify-between items-center py-sm">
+<p class="font-body-sm text-on-surface-variant" id="search-results-summary">Showing <span class="font-bold text-on-surface" id="search-results-count">5</span> results for "<span id="search-results-query">Paracetamol</span>"</p>
+<button class="flex items-center gap-xs text-primary font-caption text-caption" id="search-sort-btn" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="sort">sort</span> Sort
+            </button>
+</div>
+<!-- Empty State -->
+<div class="hidden flex-col items-center justify-center py-xl px-md text-center rounded-xl bg-surface-container-low border border-outline-variant/30" id="search-empty-state">
+<span class="material-symbols-outlined text-[48px] text-on-surface-variant mb-md">search_off</span>
+<p class="font-h3 text-h3 text-on-surface mb-sm">No medicines found</p>
+<p class="font-body-sm text-on-surface-variant max-w-sm">Try a different name, salt, or clear your filters to see more results.</p>
+</div>
+<!-- Medicine Results List (Asymmetric Bento Style for desktop, List for mobile) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg" id="search-results-grid">
+<!-- Medicine Card 1 -->
+<div class="search-product-card bg-surface rounded-xl p-md shadow-[0px_4px_20px_rgba(22,163,74,0.05)] border border-surface-container-high hover:border-primary/20 transition-all flex flex-col group" data-price="267" data-product-id="paracetamol-500mg" data-rx="false" data-stock="in">
+<div class="relative w-full aspect-square rounded-lg bg-surface-container-lowest overflow-hidden mb-md">
+<img class="w-full h-full object-contain p-lg transition-transform duration-500 group-hover:scale-110" data-alt="Professional studio photograph of a white medicine box for Paracetamol 500mg tablets, set against a clean clinical light green background with soft diffused lighting. High-end healthcare product photography, sharp focus, minimal shadows, corporate modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk-_EpEQLFht2CKhtb0jeeZWqy1hxBnuXWItblgDNLiopopa_ehLLraSMJ36Ssuq0HW_X_S5CZKbquhM14LKcpQNexaIJE6CPDfU9gE7EOcbjSTHmbKt9hoKWdTmhhjfOBaoxDL6JO2wMz1ej8KpI2mYHl3OluU6sRs5xX0OEru8Qntvsc2q86UV5SUGx5bhqMN-G2wY-iIU4LaW2mjNBhPpjAZXZa2Mkx4g1Xm8roqD6Tx4kB_NcaxA"/>
+<div class="absolute top-2 right-2 px-sm py-xs bg-surface/90 backdrop-blur-md rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px]" data-icon="bolt">bolt</span>
+<span class="font-caption text-[10px] text-primary uppercase font-bold">12 mins</span>
+</div>
+</div>
+<div class="flex justify-between items-start mb-1">
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Paracetamol 500mg</h3>
+<p class="font-body-sm text-on-surface-variant italic">Acetaminophen</p>
+</div>
+<div class="text-right">
+<div class="flex items-center gap-sm">
+<span class="font-body-sm text-on-surface-variant line-through text-[12px]">₹375.00</span>
+<span class="font-h3 text-primary">₹267.00</span>
+</div>
+<p class="font-caption text-primary text-[10px] font-bold">Save 28%</p>
+</div>
+</div>
+<div class="flex flex-wrap gap-xs mb-lg">
+<span class="px-sm py-xs bg-secondary/10 text-secondary rounded-full font-caption text-[10px] uppercase font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="check_circle">check_circle</span> In Stock
+                    </span>
+</div>
+<div class="mt-auto flex items-center justify-between gap-md">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]" data-icon="info">info</span>
+<span class="font-caption text-on-surface-variant">Strip of 10</span>
+</div>
+<button class="tap-scale px-lg py-sm bg-primary text-on-primary rounded-full font-caption font-bold shadow-md hover:bg-surface-tint transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span> ADD
+                    </button>
+</div>
+</div>
+<!-- Medicine Card 2 (Prescription Req) -->
+<div class="search-product-card bg-surface rounded-xl p-md shadow-[0px_4px_20px_rgba(22,163,74,0.05)] border border-surface-container-high hover:border-primary/20 transition-all flex flex-col group" data-price="1035" data-product-id="amoxicillin-250mg" data-rx="true" data-stock="low">
+<div class="relative w-full aspect-square rounded-lg bg-surface-container-lowest overflow-hidden mb-md">
+<img class="w-full h-full object-contain p-lg transition-transform duration-500 group-hover:scale-110" data-alt="A macro shot of a pharmaceutical blister pack containing blue and white capsules for Amoxicillin, positioned on a crisp white medical surface. The lighting is bright and even, reinforcing a sense of cleanliness and precision. The aesthetic is professional and expertly approachable." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAykQMNsxYZj46ZpttuVNgM-7j1Ncz7OhziVp1rGCmOb-jGFSViS7yedknfPjbrtoUoRFPiZMqE5tWO1NwUgDQQw-qlSyZsMwT8-TnnQFUvBSNatsq4lp-PZ4VW-HlIuvX1B2VhISIPzXXqKCFIo4IRCs0WgltcIOxSq1uXYdV3epwVmEpd_SfrcoN4fV3V7mFQc0LjGxhwIDwayle0rda3Gs25yIeEzYqSoIUUzov5dSQMoz0RewbCcg"/>
+<div class="absolute top-2 left-2 px-sm py-xs bg-error/10 backdrop-blur-md rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-error text-[14px]" data-icon="prescriptions">prescriptions</span>
+<span class="font-caption text-[10px] text-error uppercase font-bold">Prescription Required</span>
+</div>
+</div>
+<div class="flex justify-between items-start mb-1">
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Amoxicillin 250mg</h3>
+<p class="font-body-sm text-on-surface-variant italic">Antibiotic</p>
+</div>
+<div class="text-right">
+<span class="font-h3 text-on-surface">₹1,035.00</span>
+<p class="font-caption text-on-surface-variant text-[10px]">Tax Inc.</p>
+</div>
+</div>
+<div class="flex flex-wrap gap-xs mb-lg">
+<span class="px-sm py-xs bg-amber-100 text-amber-700 rounded-full font-caption text-[10px] uppercase font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="warning">warning</span> Few Left
+                    </span>
+</div>
+<div class="mt-auto flex items-center justify-between gap-md">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]" data-icon="info">info</span>
+<span class="font-caption text-on-surface-variant">Strip of 6</span>
+</div>
+<button class="tap-scale px-lg py-sm bg-primary text-on-primary rounded-full font-caption font-bold shadow-md hover:bg-surface-tint transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span> ADD
+                    </button>
+</div>
+</div>
+<!-- Medicine Card 3 -->
+<div class="search-product-card bg-surface rounded-xl p-md shadow-[0px_4px_20px_rgba(22,163,74,0.05)] border border-surface-container-high hover:border-primary/20 transition-all flex flex-col group" data-price="745" data-product-id="ibuprofen-syrup" data-rx="false" data-stock="in">
+<div class="relative w-full aspect-square rounded-lg bg-surface-container-lowest overflow-hidden mb-md">
+<img class="w-full h-full object-contain p-lg transition-transform duration-500 group-hover:scale-110" data-alt="Professional medical product photography of an amber glass syrup bottle for Ibuprofen liquid suspension. Minimalist setting with soft green accents and high-key lighting. The image evokes a sense of relief and organized healthcare, with a focus on trust and clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAslLhuLm6VB3zSjl0HqIHkOH5wWgSrm8fV4Tpsww17brUzV0JFuwXmLQmk6dUw9TBiWhwDETli4IXXr1lTWPdu4p8-n_pkfjM0brzHf8ZbnFGjlhugd9r1dJDXqwxu3RG5-wwSAIUQYBjeuPcfRQY7r3D9B2cmeEXznrUtY7DEg3taQkP6vAH6iUSzbcr-zm_-fXdRBN6RPGl8pEOS_JAKUrcgnp0aduZf5gf7V-iAjDcnhP_Lc3OfA"/>
+<div class="absolute top-2 right-2 px-sm py-xs bg-surface/90 backdrop-blur-md rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px]" data-icon="bolt">bolt</span>
+<span class="font-caption text-[10px] text-primary uppercase font-bold">15 mins</span>
+</div>
+</div>
+<div class="flex justify-between items-start mb-1">
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Ibuprofen Syrup</h3>
+<p class="font-body-sm text-on-surface-variant italic">Oral Suspension</p>
+</div>
+<div class="text-right">
+<span class="font-h3 text-on-surface">₹745.00</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-xs mb-lg">
+<span class="px-sm py-xs bg-secondary/10 text-secondary rounded-full font-caption text-[10px] uppercase font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="check_circle">check_circle</span> In Stock
+                    </span>
+</div>
+<div class="mt-auto flex items-center justify-between gap-md">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]" data-icon="info">info</span>
+<span class="font-caption text-on-surface-variant">100ml Bottle</span>
+</div>
+<button class="tap-scale px-lg py-sm bg-primary text-on-primary rounded-full font-caption font-bold shadow-md hover:bg-surface-tint transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span> ADD
+                    </button>
+</div>
+</div>
+<!-- Medicine Card 4 (Bento Style Variation) -->
+<div class="search-product-card bg-surface rounded-xl p-md shadow-[0px_4px_20px_rgba(22,163,74,0.05)] border border-surface-container-high hover:border-primary/20 transition-all flex flex-col group lg:col-span-2 md:flex-row gap-lg" data-price="543" data-product-id="cetirizine-10mg" data-rx="false" data-stock="in">
+<div class="relative w-full md:w-1/3 aspect-square rounded-lg bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-contain p-lg transition-transform duration-500 group-hover:scale-110" data-alt="A clean top-down shot of several blister packs of Cetirizine allergy relief medication arranged neatly on a light teal medical tray. Bright studio lighting, soft shadows, and a clinical feel that emphasizes safety and quality control. High-quality PWA medical software imagery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2-gy135b_55x0fgpSkXezByFMnxgenVEwtPvmStD2trKWpQ0FUTi2Q8ICZBgCRMvdoS6qQYhAsdaBnqE2W9TZCtEn5CQTF8JnTg79EFDBoyHZGMR8j8aiuTRVmZPofqHXqWoZVVyMW0T_-1nW8DegAhwtUTLS5NLC6EVnczm3EB401gwaIT5zjOyhRpLrXYEteHXLm_aODTLImlfLcUpMqrlWTp4c7w9yGshWqHTFLQKI7yDEQ6aJeQ"/>
+<div class="absolute top-2 right-2 px-sm py-xs bg-surface/90 backdrop-blur-md rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px]" data-icon="bolt">bolt</span>
+<span class="font-caption text-[10px] text-primary uppercase font-bold">10 mins</span>
+</div>
+</div>
+<div class="flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<div>
+<span class="px-sm py-1 bg-tertiary/10 text-tertiary rounded text-[10px] font-bold uppercase mb-2 inline-block">Best Seller</span>
+<h3 class="font-h2 text-h2 text-on-surface">Cetirizine 10mg</h3>
+<p class="font-body-md text-on-surface-variant italic">Anti-Allergic Relief</p>
+</div>
+<div class="text-right">
+<div class="flex items-center gap-sm">
+<span class="font-body-sm text-on-surface-variant line-through text-[12px]">₹835.00</span>
+<span class="font-h1 text-primary">₹543.00</span>
+</div>
+<p class="font-caption text-primary text-[10px] font-bold">Bundle Offer Available</p>
+</div>
+</div>
+<p class="font-body-sm text-on-surface-variant mb-md max-w-md">Provides effective relief from runny nose, sneezing, itchy, watery eyes, and itching of the nose or throat.</p>
+<div class="flex flex-wrap gap-xs mb-lg">
+<span class="px-sm py-xs bg-secondary/10 text-secondary rounded-full font-caption text-[10px] uppercase font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="check_circle">check_circle</span> 500+ Units In Stock
+                        </span>
+</div>
+<div class="mt-auto flex items-center justify-between gap-md border-t border-surface-container-high pt-md">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]" data-icon="info">info</span>
+<span class="font-caption text-on-surface-variant">Pack of 30 Tablets</span>
+</div>
+<button class="tap-scale px-xl py-md bg-primary text-on-primary rounded-full font-body-md font-bold shadow-lg hover:bg-surface-tint transition-all flex items-center gap-sm">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span> Add to Cart
+                        </button>
+</div>
+</div>
+</div>
+<!-- Medicine Card 5 -->
+<div class="search-product-card bg-surface rounded-xl p-md shadow-[0px_4px_20px_rgba(22,163,74,0.05)] border border-surface-container-high hover:border-primary/20 transition-all flex flex-col group" data-price="480" data-product-id="diclofenac-gel" data-rx="false" data-stock="in">
+<div class="relative w-full aspect-square rounded-lg bg-surface-container-lowest overflow-hidden mb-md">
+<img class="w-full h-full object-contain p-lg transition-transform duration-500 group-hover:scale-110" data-alt="High-resolution clinical photography of a tube of medicated gel for muscle pain relief. The product is shown in a bright, modern setting with soft green and white hues, projecting a professional and comforting medical aesthetic. Clean lighting and sharp details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr-2VbdKlN-TU9JOQo77alRtl7EK4vteDkQ2u54WefKohRs2L9Fo5LeJDIxyebvc35nZzHgu2mrCtORSUDHU9t8_Bfh5KTLC5kK0nbt0LXYkbK2weK3SovKLkQiLkS6VhqHFGfdMJc1Oc-lLZCg8VRTpVKN512BaNGEo17uuwUukB-B5Rhmwx6bGu5IR43HSYBtRFoSqirPyGS9oB7bzC5NmsHBSVLO5mgHQu_MzqpPnvfbfGN86hzhQ"/>
+</div>
+<div class="flex justify-between items-start mb-1">
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Diclofenac Gel</h3>
+<p class="font-body-sm text-on-surface-variant italic">Pain Relief Topicals</p>
+</div>
+<div class="text-right">
+<span class="font-h3 text-on-surface">₹480.00</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-xs mb-lg">
+<span class="px-sm py-xs bg-secondary/10 text-secondary rounded-full font-caption text-[10px] uppercase font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="check_circle">check_circle</span> In Stock
+                    </span>
+</div>
+<div class="mt-auto flex items-center justify-between gap-md">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]" data-icon="info">info</span>
+<span class="font-caption text-on-surface-variant">30g Tube</span>
+</div>
+<button class="tap-scale px-lg py-sm bg-primary text-on-primary rounded-full font-caption font-bold shadow-md hover:bg-surface-tint transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span> ADD
+                    </button>
+</div>
+</div>
+</div>
+</main>
+
+<script src="../shared/js/navigation.js"></script>
+<script src="js/main.js"></script>
+</body></html>

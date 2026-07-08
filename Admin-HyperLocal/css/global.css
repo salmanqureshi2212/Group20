@@ -1,0 +1,139 @@
+/* Global Variables and Theme Configuration */
+:root {
+  /* Vital Core Design System Colors (Emerald Green & White Palette) */
+  --primary: #006933;
+  --primary-container: #008542;
+  --on-primary: #ffffff;
+  --on-primary-container: #eeffec;
+  --primary-fixed: #8df9a8;
+  --primary-fixed-dim: #71dc8e;
+  --on-primary-fixed: #00210c;
+  --on-primary-fixed-variant: #005226;
+
+  /* Secondary aligned to green/teal */
+  --secondary: #3e6a4f;
+  --secondary-container: #d0ebd6;
+  --on-secondary: #ffffff;
+  --on-secondary-container: #0e2717;
+  --secondary-fixed: #d0ebd6;
+  --secondary-fixed-dim: #b1ddb9;
+  --on-secondary-fixed: #00210c;
+  --on-secondary-fixed-variant: #254f36;
+
+  /* Tertiary aligned to deep teal-green */
+  --tertiary: #2d625b;
+  --tertiary-container: #ccece6;
+  --on-tertiary: #ffffff;
+  --on-tertiary-container: #00201a;
+  --tertiary-fixed: #ccece6;
+  --tertiary-fixed-dim: #9ccfc6;
+  --on-tertiary-fixed: #00201a;
+  --on-tertiary-fixed-variant: #1a4a44;
+
+  --error: #ba1a1a;
+  --error-container: #ffdad6;
+  --on-error: #ffffff;
+  --on-error-container: #93000a;
+
+  /* Background and Surface tinted with a fresh green-white tint */
+  --background: #f1f9f3;
+  --on-background: #0a2512;
+
+  --surface: #f1f9f3;
+  --surface-dim: #cfebd6;
+  --surface-bright: #f1f9f3;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #e8f5ec;
+  --surface-container: #d9ebdcf0;
+  --surface-container-high: #cbe2d1;
+  --surface-container-highest: #bcdac4;
+  --on-surface: #0a2512;
+  --on-surface-variant: #284c32;
+
+  --outline: #5c8567;
+  --outline-variant: #aacfbc;
+  --inverse-surface: #1e3523;
+  --inverse-on-surface: #f1f9f3;
+  --inverse-primary: #71dc8e;
+  --surface-tint: #006d35;
+
+  /* Font Family */
+  --font-sans: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Dark Theme Variables aligned to green-black */
+html.dark {
+  --primary: #71dc8e;
+  --primary-container: #005226;
+  --on-primary: #003918;
+  --on-primary-container: #8df9a8;
+  
+  --secondary: #b1ddb9;
+  --secondary-container: #254f36;
+  --on-secondary: #003918;
+  --on-secondary-container: #d0ebd6;
+
+  --background: #0e1511;
+  --on-background: #e1e9e3;
+
+  --surface: #0a0e0b;
+  --surface-dim: #0a0e0b;
+  --surface-bright: #2d3530;
+  --surface-container-lowest: #050706;
+  --surface-container-low: #0e1511;
+  --surface-container: #141d17;
+  --surface-container-high: #1f2821;
+  --surface-container-highest: #2a332c;
+  --on-surface: #e1e9e3;
+  --on-surface-variant: #c0c9be;
+
+  --outline: #8a9389;
+  --outline-variant: #414941;
+  --inverse-surface: #e1e9e3;
+  --inverse-on-surface: #0e1511;
+}
+
+/* Global Resets and Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--on-background);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-container-low);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--outline-variant);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--outline);
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Material Symbols Adjustments */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  user-select: none;
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>MedEasy - AI Prescription Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config" src="js/tailwind-config.js"></script>
+<link href="css/style.css" rel="stylesheet"/>
+
+  </head>
+<body class="min-h-screen flex flex-col justify-between items-center text-on-surface">
+<!-- Suppress Main Shell for Transactional Onboarding per instructions -->
+<main class="flex-1 w-full max-w-lg mx-auto px-container-margin-mobile md:px-container-margin-desktop flex flex-col justify-center items-center py-xl relative overflow-hidden">
+<!-- Top Bar with Logo/Skip -->
+<header class="absolute top-0 left-0 w-full px-container-margin-mobile py-lg flex justify-between items-center z-10">
+<h1 class="font-display text-h2-mobile font-bold text-primary flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-7 h-7 flex-shrink-0" aria-hidden="true">
+                <rect width="48" height="48" rx="10" fill="#16a34a"/>
+                <path d="M19 10h10v10h10v10H29v10H19V30H9V20h10z" fill="#22c55e"/>
+                <path d="M8 30 Q18 18 38 16" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+                <path d="M10 34 Q22 20 40 20" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+              </svg>
+              MedEasy
+            </h1>
+<button class="font-body-md text-primary font-medium px-4 py-2 hover:bg-surface-container-low rounded-full transition-colors active:scale-95 duration-150">
+                Skip
+            </button>
+</header>
+<!-- Illustration Section (Hero Content) -->
+<div class="relative w-full aspect-square flex items-center justify-center mb-xl">
+<!-- Background Decorative Blobs -->
+<div class="absolute w-64 h-64 bg-primary-container/20 rounded-full blur-3xl -z-10 animate-pulse"></div>
+<div class="absolute w-48 h-48 bg-secondary-container/20 rounded-full blur-2xl top-10 right-0 -z-10"></div>
+<!-- Phone Mockup with Scanning Interaction -->
+<div class="relative w-64 h-[450px] bg-neutral-900 rounded-[3rem] border-[8px] border-neutral-800 shadow-2xl overflow-hidden ring-4 ring-white/10">
+<!-- Status Bar -->
+<div class="h-6 flex justify-center items-center">
+<div class="w-20 h-4 bg-neutral-800 rounded-b-xl"></div>
+</div>
+<!-- Camera Viewfinder Content -->
+<div class="relative h-full w-full bg-slate-100 flex flex-col">
+<div class="flex-1 p-4 flex flex-col gap-sm">
+<!-- Simulated Prescription Paper -->
+<div class="bg-white p-4 shadow-sm rounded-lg flex flex-col gap-2 relative overflow-hidden h-full">
+<div class="h-4 w-1/2 bg-slate-100 rounded"></div>
+<div class="h-2 w-full bg-slate-50 rounded"></div>
+<div class="h-2 w-5/6 bg-slate-50 rounded"></div>
+<div class="mt-4 h-6 w-3/4 bg-primary/10 rounded flex items-center px-2">
+<span class="text-[8px] font-bold text-primary">AMOXICILLIN 500mg</span>
+</div>
+<div class="h-2 w-1/3 bg-slate-100 rounded mt-2"></div>
+<div class="mt-4 h-6 w-3/4 bg-secondary/10 rounded flex items-center px-2">
+<span class="text-[8px] font-bold text-secondary">IBUPROFEN 400mg</span>
+</div>
+<!-- Digital Scanning Highlight Overlay -->
+<div class="scan-line"></div>
+<!-- AI Detection Tags -->
+<div class="absolute top-24 right-2 floating-pill">
+<div class="bg-primary text-white text-[10px] px-2 py-1 rounded-full flex items-center gap-1 shadow-lg">
+<span class="material-symbols-outlined text-[12px]">check_circle</span>
+<span>Detected</span>
+</div>
+</div>
+</div>
+</div>
+<!-- App Interface Simulation -->
+<div class="h-24 bg-white border-t border-slate-200 flex items-center justify-around">
+<div class="w-12 h-12 rounded-full border-4 border-primary p-1">
+<div class="w-full h-full bg-primary rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Float-In Cards (Desktop layout details) -->
+<div class="hidden md:block absolute -left-12 top-1/4 glass-card p-4 rounded-xl shadow-lg border-l-4 border-primary max-w-[180px] animate-bounce-slow">
+<p class="text-caption font-bold text-primary uppercase tracking-wider mb-xs">AI Insight</p>
+<p class="text-body-sm leading-tight">Accurate OCR medicine extraction</p>
+</div>
+<div class="hidden md:block absolute -right-12 bottom-1/4 glass-card p-4 rounded-xl shadow-lg border-l-4 border-secondary max-w-[180px]">
+<p class="text-caption font-bold text-secondary uppercase tracking-wider mb-xs">Secure</p>
+<p class="text-body-sm leading-tight">Encrypted prescription storage</p>
+</div>
+</div>
+<!-- Text Content Area -->
+<div class="text-center space-y-md z-10 w-full">
+<h2 class="font-display text-h1-mobile md:text-h1 text-on-surface">AI Prescription Upload</h2>
+<p class="font-body-lg text-on-surface-variant max-w-sm mx-auto">
+                Simply snap a photo of your prescription. Our AI detects your medicines instantly.
+            </p>
+</div>
+</main>
+<!-- Footer Controls -->
+<footer class="w-full max-w-lg mx-auto px-container-margin-mobile pb-lg pt-md space-y-lg">
+<!-- Progress Dots -->
+<div class="flex justify-center gap-xs items-center">
+<div class="transition-dot w-2 h-2 rounded-full bg-outline-variant"></div>
+<div class="transition-dot w-6 h-2 rounded-full bg-primary"></div>
+<div class="transition-dot w-2 h-2 rounded-full bg-outline-variant"></div>
+</div>
+<!-- Primary CTA -->
+<div class="flex flex-col gap-md">
+<button class="w-full bg-primary text-white font-display text-body-lg font-bold py-4 rounded-xl shadow-[0px_4px_20px_rgba(22,163,74,0.1)] active:scale-[0.98] active:shadow-sm transition-all duration-200 flex items-center justify-center gap-2">
+                Next
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</footer>
+<!-- Background Pattern -->
+<div class="fixed inset-0 pointer-events-none opacity-20 -z-20">
+<div class="absolute inset-0" style="background-image: radial-gradient(#006b2c 0.5px, transparent 0.5px); background-size: 24px 24px;"></div>
+</div>
+<script src="../shared/js/navigation.js"></script>
+<script src="js/main.js"></script>
+</body></html>

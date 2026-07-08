@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>MedEasy | Prescription AI Upload</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config Injection -->
+<script id="tailwind-config" src="js/tailwind-config.js"></script>
+<link href="css/style.css" rel="stylesheet"/>
+
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col overflow-hidden">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop h-16 bg-surface dark:bg-surface-dim shadow-[0px_4px_20px_rgba(22,163,74,0.05)]">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-low transition-colors rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary">arrow_back</span>
+</button>
+<h1 class="font-display text-h2-mobile md:text-h2 font-bold text-primary dark:text-secondary-fixed-dim">Upload</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-surface-container-low transition-colors rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary">help</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas: Split Screen -->
+<main class="flex-1 mt-16 pb-16 flex flex-col md:flex-row h-[calc(100vh-64px)] overflow-hidden">
+<!-- Left/Top Section: Upload Panel -->
+<section class="relative w-full h-1/2 md:h-full md:w-1/2 bg-gradient-to-br from-[#f0fdf4] to-[#dcfce7] overflow-hidden flex flex-col">
+
+  <!-- Decorative blobs -->
+  <div class="absolute -top-16 -left-16 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute -bottom-16 -right-16 w-56 h-56 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="relative z-10 flex flex-col flex-1 justify-center items-center gap-lg px-container-margin-mobile md:px-10 py-lg">
+
+    <!-- Title -->
+    <div class="text-center">
+      <h2 class="font-display text-h2-mobile md:text-h2 font-bold text-on-surface">Upload Prescription</h2>
+      <p class="font-body-sm text-on-surface-variant mt-1">Our AI reads your prescription and detects medicines instantly</p>
+    </div>
+
+    <!-- Upload Drop Zone -->
+    <div class="w-full max-w-sm" id="upload-zone">
+      <label
+        class="flex flex-col items-center justify-center w-full min-h-[220px] border-2 border-dashed border-primary/40 rounded-2xl bg-white/70 backdrop-blur-sm cursor-pointer hover:border-primary hover:bg-white/90 transition-all duration-200 active:scale-[0.98] group px-6 py-8 gap-md shadow-[0px_4px_20px_rgba(22,163,74,0.07)]"
+        for="prescription-file-input"
+        id="upload-label"
+      >
+        <!-- Upload Icon -->
+        <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+          <span class="material-symbols-outlined text-primary text-[36px]" style="font-variation-settings:'FILL' 0;">upload_file</span>
+        </div>
+        <div class="text-center">
+          <p class="font-h3 text-on-surface">Drag &amp; drop or <span class="text-primary underline underline-offset-2">browse</span></p>
+          <p class="font-body-sm text-on-surface-variant mt-1">JPG, PNG or PDF &nbsp;·&nbsp; Max 10 MB</p>
+        </div>
+        <!-- Preview area (hidden until file chosen) -->
+        <div class="hidden w-full" id="file-preview">
+          <div class="flex items-center gap-md p-md bg-primary/10 rounded-xl border border-primary/20">
+            <span class="material-symbols-outlined text-primary text-[28px]" style="font-variation-settings:'FILL' 1;">description</span>
+            <div class="flex-1 min-w-0">
+              <p class="font-body-sm font-bold text-on-surface truncate" id="file-name">file.jpg</p>
+              <p class="font-caption text-on-surface-variant" id="file-size">—</p>
+            </div>
+            <button class="p-1 rounded-full hover:bg-primary/20 transition-colors" id="remove-file" type="button">
+              <span class="material-symbols-outlined text-on-surface-variant text-[18px]">close</span>
+            </button>
+          </div>
+        </div>
+      </label>
+      <input accept="image/*,.pdf" class="hidden" id="prescription-file-input" type="file"/>
+    </div>
+
+    <!-- Divider -->
+    <div class="flex items-center gap-md w-full max-w-sm">
+      <div class="flex-1 h-px bg-outline-variant/50"></div>
+      <span class="font-caption text-on-surface-variant text-[11px] uppercase tracking-widest">or</span>
+      <div class="flex-1 h-px bg-outline-variant/50"></div>
+    </div>
+
+    <!-- Camera Button -->
+    <button class="flex items-center gap-sm px-xl py-md rounded-full border border-primary/30 bg-white/80 hover:bg-white hover:border-primary text-primary font-body-md font-semibold transition-all active:scale-95 shadow-sm" id="open-camera-btn" type="button">
+      <span class="material-symbols-outlined text-[20px]">photo_camera</span>
+      Take a Photo
+    </button>
+
+    <!-- Trust badges -->
+    <div class="flex items-center justify-center gap-lg mt-auto">
+      <div class="flex items-center gap-xs text-on-surface-variant">
+        <span class="material-symbols-outlined text-primary text-[16px]">lock</span>
+        <span class="font-caption text-[11px]">Encrypted</span>
+      </div>
+      <div class="flex items-center gap-xs text-on-surface-variant">
+        <span class="material-symbols-outlined text-primary text-[16px]">verified</span>
+        <span class="font-caption text-[11px]">Pharmacist Verified</span>
+      </div>
+      <div class="flex items-center gap-xs text-on-surface-variant">
+        <span class="material-symbols-outlined text-primary text-[16px]">psychology</span>
+        <span class="font-caption text-[11px]">AI Powered</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- Right/Bottom Section: Results & Controls -->
+<section class="w-full h-1/2 md:h-full md:w-1/2 bg-surface p-container-margin-mobile md:p-container-margin-desktop flex flex-col gap-lg shadow-[-4px_0_20px_rgba(0,0,0,0.05)] rounded-t-3xl md:rounded-none z-10">
+<!-- Instructions Header -->
+<div class="flex flex-col gap-sm">
+<h2 class="font-display text-h2 text-on-surface">Verification Details</h2>
+<p class="font-body-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">info</span>
+                    Ensure the doctor's signature and clinic stamp are visible.
+                </p>
+</div>
+<!-- Detected Medicines List -->
+<div class="flex-1 flex flex-col gap-md overflow-hidden">
+<div class="flex justify-between items-center">
+<span class="font-caption text-caption text-on-surface-variant uppercase tracking-widest">Detected Medicines (2)</span>
+<button class="text-primary font-caption text-caption hover:underline transition-all">Edit All</button>
+</div>
+<div class="custom-scroll flex-1 overflow-y-auto pr-2 flex flex-col gap-sm">
+<!-- Item 1: Paracetamol -->
+<div class="bg-white p-md rounded-xl shadow-[0px_4px_20px_rgba(22,163,74,0.05)] border border-outline-variant/30 flex items-center gap-md transition-all hover:border-primary/40 group">
+<div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">medication</span>
+</div>
+<div class="flex-1">
+<h3 class="font-h3 text-on-surface">Paracetamol 500mg</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-caption text-[10px] uppercase tracking-wide">In Stock</span>
+<span class="text-on-surface-variant font-caption text-[10px]">• 10 Tablets</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">check_circle</span>
+</div>
+<!-- Item 2: Amoxicillin -->
+<div class="bg-white p-md rounded-xl shadow-[0px_4px_20px_rgba(22,163,74,0.05)] border border-outline-variant/30 flex items-center gap-md transition-all hover:border-primary/40 group">
+<div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">medical_services</span>
+</div>
+<div class="flex-1">
+<h3 class="font-h3 text-on-surface">Amoxicillin</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary font-caption text-[10px] uppercase tracking-wide">Requires Verification</span>
+</div>
+</div>
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">edit</span>
+</button>
+</div>
+<!-- Subtle Placeholder for next scan -->
+<div class="border-2 border-dashed border-outline-variant/50 p-md rounded-xl flex items-center justify-center gap-md text-on-surface-variant/60">
+<span class="material-symbols-outlined">add_a_photo</span>
+<span class="font-body-sm italic">Scanning for more items...</span>
+</div>
+</div>
+</div>
+<!-- Call to Action Section -->
+<div class="pt-md border-t border-outline-variant/20 flex flex-col gap-sm">
+<div class="flex justify-between items-center mb-2 px-1">
+<span class="text-on-surface-variant font-body-sm">Subtotal Est.</span>
+<span class="font-h3 text-primary">₹1,045.00</span>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-h3 flex items-center justify-center gap-2 shadow-lg hover:bg-primary-container transition-all active:scale-95 duration-150">
+                    Add to Cart &amp; Proceed
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<p class="text-center font-caption text-on-surface-variant/70 mt-1">Our pharmacists will verify all prescriptions before shipping.</p>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Shell (Suppressed due to task-focused flow, but logic check: This is a task-focused journey, so we suppress it per guidelines) -->
+<!-- Micro-interactions Script -->
+<script src="../shared/js/navigation.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function () {
+  var input   = document.getElementById('prescription-file-input');
+  var label   = document.getElementById('upload-label');
+  var preview = document.getElementById('file-preview');
+  var fname   = document.getElementById('file-name');
+  var fsize   = document.getElementById('file-size');
+  var removeBtn = document.getElementById('remove-file');
+  var cameraBtn = document.getElementById('open-camera-btn');
+
+  function showPreview(file) {
+    fname.textContent = file.name;
+    var kb = (file.size / 1024).toFixed(1);
+    fsize.textContent = kb > 1024 ? (kb / 1024).toFixed(1) + ' MB' : kb + ' KB';
+    preview.classList.remove('hidden');
+  }
+
+  function clearPreview() {
+    preview.classList.add('hidden');
+    input.value = '';
+  }
+
+  input.addEventListener('change', function () {
+    if (input.files && input.files[0]) showPreview(input.files[0]);
+  });
+
+  removeBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    clearPreview();
+  });
+
+  // Drag & drop
+  var zone = document.getElementById('upload-zone');
+  zone.addEventListener('dragover', function (e) {
+    e.preventDefault();
+    label.classList.add('border-primary', 'bg-white/90');
+  });
+  zone.addEventListener('dragleave', function () {
+    label.classList.remove('border-primary', 'bg-white/90');
+  });
+  zone.addEventListener('drop', function (e) {
+    e.preventDefault();
+    label.classList.remove('border-primary', 'bg-white/90');
+    var file = e.dataTransfer.files[0];
+    if (file) {
+      // Transfer to input so form picks it up
+      var dt = new DataTransfer();
+      dt.items.add(file);
+      input.files = dt.files;
+      showPreview(file);
+    }
+  });
+
+  // Camera button — opens file picker filtered to images only (native camera on mobile)
+  cameraBtn.addEventListener('click', function () {
+    input.setAttribute('capture', 'environment');
+    input.click();
+    // Remove capture after so normal browse still works
+    setTimeout(function () { input.removeAttribute('capture'); }, 500);
+  });
+})();
+</script>
+</body></html>

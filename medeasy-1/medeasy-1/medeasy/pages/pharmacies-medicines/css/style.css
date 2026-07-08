@@ -1,0 +1,23 @@
+body {
+            font-family: 'Geist', sans-serif;
+            background-color: #F0FDF4; /* Light Green Base from Design System */
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .clinical-shadow {
+            box-shadow: 0px 4px 20px rgba(22, 163, 74, 0.05);
+        }
+        .ios-scrolling {
+            -webkit-overflow-scrolling: touch;
+        }
+body {
+      min-height: max(884px, 100dvh);
+    }

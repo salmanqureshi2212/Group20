@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>MedEasy - Healthcare Delivered</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+<script id="tailwind-config" src="js/tailwind-config.js"></script>
+
+  </head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop h-16 bg-surface dark:bg-surface-dim shadow-[0px_4px_20px_rgba(22,163,74,0.05)]">
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary dark:text-inverse-primary p-2 hover:bg-surface-container-low transition-colors rounded-full active:scale-95 duration-150">menu</button>
+<h1 class="font-display text-h2-mobile md:text-h2 font-bold text-primary dark:text-secondary-fixed-dim flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-7 h-7 flex-shrink-0" aria-hidden="true">
+                <rect width="48" height="48" rx="10" fill="#16a34a"/>
+                <path d="M19 10h10v10h10v10H29v10H19V30H9V20h10z" fill="#22c55e"/>
+                <path d="M8 30 Q18 18 38 16" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+                <path d="M10 34 Q22 20 40 20" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+              </svg>
+              MedEasy
+            </h1>
+</div>
+<div class="flex items-center gap-sm">
+<button class="material-symbols-outlined text-primary dark:text-inverse-primary p-2 hover:bg-surface-container-low transition-colors rounded-full active:scale-95 duration-150">shopping_cart</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="pt-20 px-container-margin-mobile md:max-w-[1280px] md:mx-auto md:px-container-margin-desktop">
+<!-- Hero Section -->
+<section class="mt-lg relative rounded-xl overflow-hidden bg-primary-container p-lg text-on-primary-container">
+<div class="relative z-10 flex flex-col gap-md">
+<div class="space-y-1">
+<span class="font-caption text-caption uppercase tracking-widest opacity-90">Instant Delivery</span>
+<h2 class="font-display text-h1-mobile md:text-h1 max-w-[280px] md:max-w-md">Medicines delivered in 15 mins</h2>
+</div>
+<!-- Search Bar -->
+<div class="relative w-full max-w-xl group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full h-14 pl-12 pr-12 rounded-full border-none focus:ring-4 focus:ring-primary/20 text-on-surface text-body-md shadow-lg transition-all" placeholder="Search medicines, vitamins..." type="text"/>
+<button class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-primary p-1 rounded-full hover:bg-primary/10 transition-colors">mic</button>
+</div>
+</div>
+<!-- Atmospheric BG Element -->
+<div class="absolute -right-12 -bottom-12 w-48 h-48 bg-secondary/30 rounded-full blur-3xl"></div>
+</section>
+<!-- Quick Action Grid -->
+<section class="mt-xl">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md">
+<!-- Large Highlight: Upload Prescription -->
+<div class="col-span-2 relative h-40 md:h-full rounded-xl p-lg bg-white shadow-[0px_4px_20px_rgba(22,163,74,0.05)] border border-primary/10 hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between overflow-hidden">
+<div class="flex justify-between items-start">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">upload_file</span>
+</div>
+<span class="bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-full">QUICKEST</span>
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Upload Prescription</h3>
+<p class="text-body-sm text-on-surface-variant">Fastest way to order medicines</p>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-5 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-[120px]">description</span>
+</div>
+</div>
+<!-- Book Lab Test -->
+<div class="rounded-xl p-md bg-white shadow-[0px_4px_20px_rgba(22,163,74,0.05)] flex flex-col items-center justify-center text-center gap-sm hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed-dim/30 flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">science</span>
+</div>
+<span class="font-h3 text-body-md font-bold">Book Lab Test</span>
+</div>
+<!-- Consult Doctor -->
+<div class="rounded-xl p-md bg-white shadow-[0px_4px_20px_rgba(22,163,74,0.05)] flex flex-col items-center justify-center text-center gap-sm hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed-dim/30 flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">video_chat</span>
+</div>
+<span class="font-h3 text-body-md font-bold">Consult Doctor</span>
+</div>
+<!-- Reorder (Mobile Only Row or Desktop End) -->
+<div class="col-span-2 md:col-span-4 rounded-xl p-md bg-surface-container-low flex items-center justify-between cursor-pointer active:scale-[0.98] transition-transform">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary">history</span>
+<div>
+<span class="font-bold block">Reorder Medicines</span>
+<span class="text-body-sm opacity-70">Last order: Paracetamol 500mg</span>
+</div>
+</div>
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Categories Scroll -->
+<section class="mt-xl overflow-hidden">
+<h2 class="font-h2 text-h2 mb-md">Shop by Concerns</h2>
+<div class="flex gap-md overflow-x-auto no-scrollbar pb-xs">
+<!-- Category Item -->
+<div class="flex-shrink-0 flex flex-col items-center gap-sm group cursor-pointer">
+<div class="w-20 h-20 rounded-full bg-white shadow-sm flex items-center justify-center overflow-hidden border border-outline-variant group-hover:border-primary transition-all">
+<div class="w-full h-full bg-cover bg-center" data-alt="A macro minimalist photograph of glowing orange embers and warm steam against a clean white clinical background, symbolizing fever treatment in a professional healthcare context with soft lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCLA6St8rIbrKbGu5s07A9znNekUfx9pAcNoPqWbe3LBz2LHJcNfXuFf5J48XhW-hFUnAVwJeVAeaqK2KFNnW1z5iN7izfIkw-1wWeNua3BKztZWCvboEa5JyLoSOQh05Vj5ikykMOsToNxMRF6cUXBFVu1CQf5o2_NBfBdXe1nNOCbvDraqZXnaSnu--azeB3Ppyj433NR7G8ZKleG-7gbA9dtM4_bDIOG56S4EA1jcXBS0xkoRtgPTQ')"></div>
+</div>
+<span class="font-caption text-caption font-bold">Fever</span>
+</div>
+<!-- Category Item -->
+<div class="flex-shrink-0 flex flex-col items-center gap-sm group cursor-pointer">
+<div class="w-20 h-20 rounded-full bg-white shadow-sm flex items-center justify-center overflow-hidden border border-outline-variant group-hover:border-primary transition-all">
+<div class="w-full h-full bg-cover bg-center" data-alt="A sleek conceptual image of blue crystalline water molecules and clean geometric shapes, representing diabetes care and insulin stability with a professional, trustworthy medical aesthetic and bright lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBYV_NSeQ_xW_RbxNgorV6A0sVWPunHeDsOgUFk5Cecm9LQm1w_d36Y8UZdbY2ZjgViMVnc5qk7YVt2rPQyqDugOCsZAN3zE8lrzqsvy9EQQ5Y-jObPs7JtPYqfCjI6b94S9w1qRSMyugG4Wm0_cAZp3F8NaCOdG2KWqZOLUZiZcYEPxUX_N5oaHbZgF2ryGwUaUFJeeJPqXZCX19gIZkLoLncsBu3dyF7e29O_WaN45LfHwr3HNjcG3g')"></div>
+</div>
+<span class="font-caption text-caption font-bold">Diabetes</span>
+</div>
+<!-- Category Item -->
+<div class="flex-shrink-0 flex flex-col items-center gap-sm group cursor-pointer">
+<div class="w-20 h-20 rounded-full bg-white shadow-sm flex items-center justify-center overflow-hidden border border-outline-variant group-hover:border-primary transition-all">
+<div class="w-full h-full bg-cover bg-center" data-alt="A high-end digital illustration of a stylized pulsing heart made of soft glowing red lines in a clean, bright medical interface environment, signifying heart health and cardiology with modern minimal design." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDAbVFmqRcOC-bxpLYQ4bciKE6ZMYqXclvdIZBN6UGL3uQ9GK2aUhu18NtDIawYElZRfDhn7IAml_I6BMYuhaJ5G2vhzzpBUONogNRmIDHx82vWNFn4S2BEn7S60Zi3wZRIJiSJt1ViqmcZrsvpwieOI_dPfIy1jBllR8EmENUSm5tWVRAOfkCxYe1HEU7WWFSaKKxyF3J-EZN4S3Kn2u4mpkiRlmaNZfBioMErSx7ku_LfdrMf3Fq9KA')"></div>
+</div>
+<span class="font-caption text-caption font-bold">Heart</span>
+</div>
+<!-- Category Item -->
+<div class="flex-shrink-0 flex flex-col items-center gap-sm group cursor-pointer">
+<div class="w-20 h-20 rounded-full bg-white shadow-sm flex items-center justify-center overflow-hidden border border-outline-variant group-hover:border-primary transition-all">
+<div class="w-full h-full bg-cover bg-center" data-alt="Soft focused photography of a minimalist baby mobile with pastel colored wooden stars against a pure white wall, creating a serene and safe mood for baby care products in a premium medical store." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAAkBH-3jj_g9C5rP88uMLtjxiegbDrbPRCNvBp5urNrhNMzPz4l5iWnBUO_fZRPxTawDLcIFdx0t6bxVEX3V8_r5ljucp8Mr_Z1xxy4oDRpjwDPQCxNXRqhtEtKl1-KIxKxXHLWk1Lfg9WQmgFCLdJjqd-6QOOc6yUT9a5_9juAye5y40YQ6IYhFgKDR2zpDcRhrgKZ1Br6jRRolsbSYw-NRvd0et4MWy3_iNq40M4JCTnt5FQ9fElmw')"></div>
+</div>
+<span class="font-caption text-caption font-bold">Baby Care</span>
+</div>
+<!-- Category Item -->
+<div class="flex-shrink-0 flex flex-col items-center gap-sm group cursor-pointer">
+<div class="w-20 h-20 rounded-full bg-white shadow-sm flex items-center justify-center overflow-hidden border border-outline-variant group-hover:border-primary transition-all">
+<div class="w-full h-full bg-cover bg-center" data-alt="Close up of fresh green mint leaves with water droplets against a bright white background, representing digestive health and herbal remedies with a clean, expert healthcare aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAF6Fsk-Bsq-lVVCZnNclV892mfK5N47oEfU8tHQzqmE7Lrjsm_76IpUvuEPnixcSW4b_4lGW9bCw59y4IgiDAi5J89bqNCONws6PKW79WCSrvBJk4q7GC3DsUZOeR3LEXFWKY4FvfKAqa6wFdVthwFSxnAsHwlP3dA5XirgOb9senqpL-CILCvOnheD3EwY_pfqZpFiSUP9TGt0zQnTeaH7ylLO-7zALyHpkmT20uY4JO8FpNpUwscVw')"></div>
+</div>
+<span class="font-caption text-caption font-bold">Digestion</span>
+</div>
+</div>
+</section>
+<!-- Nearby Pharmacies -->
+<section class="mt-xl">
+<div class="flex justify-between items-end mb-md">
+<h2 class="font-h2 text-h2">Nearby Pharmacies</h2>
+<button class="text-primary font-bold text-body-sm flex items-center">See All <span class="material-symbols-outlined text-[18px]">chevron_right</span></button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Pharmacy Card 1 -->
+<div class="bg-white rounded-xl p-md shadow-[0px_4px_20px_rgba(22,163,74,0.05)] flex gap-md items-center group cursor-pointer hover:shadow-md transition-shadow pharmacy-card" data-pharmacy-id="apollo-pharmacy">
+<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="A clean, modern pharmacy interior with organized white shelves and warm, soft lighting, highlighting a professional and welcoming healthcare environment with a minimalist aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCjfHIpMNLAnJqRhyx72kCNkSVOS7vPBeQc2cwCbMGvUQlcUVVIlNHnbaqMr3pIvjk2wtzDS40fWrkdKKwVh6fKF_c35PFJ9Ne-Ujr_b2tRKYacgBc35ZeNt2Gbf5PPJ2LamYrLPVp-t9YvENOtFVCSqvtLRSy6fQWFtsT-9eNzwvaCKss-JvdfPcB7zRIjVO619NcCY4N7FXdVODdQhH5Ifi1K1XEK3dFJVCehzj_UkRfUn0ZQA9bPCA')"></div>
+</div>
+<div class="flex-1 space-y-1">
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-on-surface group-hover:text-primary transition-colors">Apollo Pharmacy</h3>
+<div class="flex items-center gap-xs bg-primary-fixed text-on-primary-fixed-variant px-1.5 py-0.5 rounded text-[10px] font-bold">
+                                4.8 <span class="material-symbols-outlined text-[10px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<div class="flex items-center gap-sm text-on-surface-variant text-[12px]">
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-[14px]">location_on</span> 0.8km</span>
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-[14px]">schedule</span> 12 min</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="text-[11px] text-primary font-bold">Express Delivery Available</span>
+</div>
+</div>
+</div>
+<!-- Pharmacy Card 2 -->
+<div class="bg-white rounded-xl p-md shadow-[0px_4px_20px_rgba(22,163,74,0.05)] flex gap-md items-center group cursor-pointer hover:shadow-md transition-shadow pharmacy-card" data-pharmacy-id="wellness-forever">
+<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="A sleek storefront of a high-end medical clinic with glass facades and bright, expert lighting, conveying a sense of premium healthcare service and reliability." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA-VWcaQFHP7kn1v2pdjDoZMCgjqm9yo5dwEFyMaVhZYPNTcNIaIC4hRt0_XjH6zU3_BeiE6rzfyX6xB0mjFSjH8dUUM1z4F2Wuxr_Hn-Qd6xyvxlmwxt3mED53VoQNW1cbkXF4iU0PaRfeEBUPbJtblRSnRqoXoBFNYs9JEepV8nP7f3RrnQdNkjzej1s5JCNpFCfpQO44jxBTMiBoHYhWi_mjfEairO5aE-FtaitgD_etFD7LQKXuRw')"></div>
+</div>
+<div class="flex-1 space-y-1">
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-on-surface group-hover:text-primary transition-colors">MediCare Plus</h3>
+<div class="flex items-center gap-xs bg-primary-fixed text-on-primary-fixed-variant px-1.5 py-0.5 rounded text-[10px] font-bold">
+                                4.6 <span class="material-symbols-outlined text-[10px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<div class="flex items-center gap-sm text-on-surface-variant text-[12px]">
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-[14px]">location_on</span> 1.2km</span>
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-[14px]">schedule</span> 15 min</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="text-[11px] text-primary font-bold">Open 24/7</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Daily Essentials -->
+<section class="mt-xl">
+<h2 class="font-h2 text-h2 mb-md">Daily Essentials</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md">
+<!-- Product Card 1 -->
+<div class="bg-white rounded-xl p-sm shadow-[0px_4px_20px_rgba(22,163,74,0.05)] flex flex-col gap-sm relative overflow-hidden group">
+<div class="aspect-square bg-surface-container-low rounded-lg overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center transition-transform group-hover:scale-105 duration-300" data-alt="A premium bottle of multivitamins in an amber glass jar, placed on a white marble surface with soft, diffused sunlight coming through a window, reflecting high quality and health." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA6cvN6haeYN6CqaSSFxja_uifAokj_Hc-Y2eAtfstmiX5CInPNEq8LI20RortLc0gmtg_SEXVcY5nzzzfkusRlfvipT-8aiLRjkVt9qqWPeF_i65XVVNkmHayE0ANvXQwDoYAyDzgUHrMCaZDFa9s5QtBKPE7X0DbzRfaZFI9T19V5V8UHW7ZWidFZH4rOKt5itPvL465N25qVE6kztxmpjCG9Lb4HHhGIYs6MRQvuWEbDYy9fJeY8zQ')"></div>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur shadow-sm flex items-center justify-center text-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="px-1 space-y-1">
+<p class="text-[10px] font-bold text-primary uppercase tracking-tighter">Wellness</p>
+<h4 class="font-bold text-body-sm line-clamp-2">Premium Multivitamins For Men (60 Tabs)</h4>
+<div class="flex items-center gap-sm">
+<span class="font-bold text-primary">₹2,085.00</span>
+<span class="text-[12px] line-through text-on-surface-variant opacity-50">₹2,670.00</span>
+</div>
+</div>
+<button class="w-full bg-primary text-white font-bold py-2 rounded-lg text-body-sm hover:bg-primary-container transition-colors active:scale-[0.97]">Add to Cart</button>
+</div>
+<!-- Product Card 2 -->
+<div class="bg-white rounded-xl p-sm shadow-[0px_4px_20px_rgba(22,163,74,0.05)] flex flex-col gap-sm relative overflow-hidden group">
+<div class="aspect-square bg-surface-container-low rounded-lg overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center transition-transform group-hover:scale-105 duration-300" data-alt="Minimalist pharmaceutical packaging of pain relief tablets on a clinical white surface, with sharp focus and clean professional medical studio lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCetv3euZP2vHHrqFjbjeW7pYZ80qEthUXnDe7WYwl4qeYgQrJ9U4_DpywugsQa7nKBn2_6wnT9S-d-UXW4kUISSqGFOCzPGz5CmMm7YUudTSw_6ClkmLmsmHcQV4ogAz2KMVOtCwTdlUGof5ECQfDj_bop3o-7CnH0Ki0Uzku9B4pEtDyI_B49dd1ZvGo_-kYhbhDaXGNumCSmhzWxotgyeltWX66AVifvHtVi7Vgr3LjffSyv-ArvSg')"></div>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur shadow-sm flex items-center justify-center text-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="px-1 space-y-1">
+<p class="text-[10px] font-bold text-primary uppercase tracking-tighter">Fast Relief</p>
+<h4 class="font-bold text-body-sm line-clamp-2">Advanced Pain Relief Gel (50g)</h4>
+<div class="flex items-center gap-sm">
+<span class="font-bold text-primary">₹1,045.00</span>
+</div>
+</div>
+<button class="w-full bg-primary text-white font-bold py-2 rounded-lg text-body-sm hover:bg-primary-container transition-colors active:scale-[0.97]">Add to Cart</button>
+</div>
+<!-- Product Card 3 -->
+<div class="bg-white rounded-xl p-sm shadow-[0px_4px_20px_rgba(22,163,74,0.05)] flex flex-col gap-sm relative overflow-hidden group">
+<div class="aspect-square bg-surface-container-low rounded-lg overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center transition-transform group-hover:scale-105 duration-300" data-alt="An elegant white bottle of hydrating skin serum with a dropper, set against a background of fresh green leaves and bright daylight, emphasizing purity and health care." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBYyxy0NUt2KEJ5SLl-o3piTtDYeIYEx8fU-kNp4b_1TUpVN8Z8zcnMlGME2q2QOfjpeHNKe8mtdffz7sWNhpgjMlgY98P7peuKh37TeZWbS-mgjcbihU3fYZBtOXK6yjH4c04pT_vVXDFdjGA3qI6g3il7Fb7IepE4k83-_Ci6FniZl7z1R7R8-RxIoupx0uKIz4DExUBzplyI8u9JDdyq4hVu6xRGXeN_x1A0sy6fIBwfwSAV3zAblg')"></div>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur shadow-sm flex items-center justify-center text-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="px-1 space-y-1">
+<p class="text-[10px] font-bold text-primary uppercase tracking-tighter">Skincare</p>
+<h4 class="font-bold text-body-sm line-clamp-2">Dermatologist Tested Moisturizer</h4>
+<div class="flex items-center gap-sm">
+<span class="font-bold text-primary">₹1,504.00</span>
+</div>
+</div>
+<button class="w-full bg-primary text-white font-bold py-2 rounded-lg text-body-sm hover:bg-primary-container transition-colors active:scale-[0.97]">Add to Cart</button>
+</div>
+<!-- Product Card 4 -->
+<div class="bg-white rounded-xl p-sm shadow-[0px_4px_20px_rgba(22,163,74,0.05)] flex flex-col gap-sm relative overflow-hidden group">
+<div class="aspect-square bg-surface-container-low rounded-lg overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center transition-transform group-hover:scale-105 duration-300" data-alt="A clean white medical box of daily health supplements on a wooden table with a soft focus background, symbolizing daily wellness and expert healthcare management." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBTwj95ZclF2lSxiAWAmKheXZjUhncQjJaxaHrbR4MRhe-S0Gx-CctmjKVsrYKgSQ0VcCorT_oYwIW46pJIStbVWtcO5ZX-vIHHQ_Jt_zH5z-W7e0AXTGG1WDk4wOyA4NMqZjrXIaShkt5eLbLUUNkiA8QhZNHnVJoLqx95GL5T1tn1mj0-2NvDuuuE2Llfmp5WM-eQRnG9gNh-BS6II3_ihEVV9tRFm3Qou3AWprJGKbBg3n2wHi7FuQ')"></div>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur shadow-sm flex items-center justify-center text-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="px-1 space-y-1">
+<p class="text-[10px] font-bold text-primary uppercase tracking-tighter">Support</p>
+<h4 class="font-bold text-body-sm line-clamp-2">Immune System Booster Drops</h4>
+<div class="flex items-center gap-sm">
+<span class="font-bold text-primary">₹1,315.00</span>
+<span class="text-[12px] line-through text-on-surface-variant opacity-50">₹1,670.00</span>
+</div>
+</div>
+<button class="w-full bg-primary text-white font-bold py-2 rounded-lg text-body-sm hover:bg-primary-container transition-colors active:scale-[0.97]">Add to Cart</button>
+</div>
+</div>
+</section>
+<!-- Trust Badges -->
+<section class="mt-xl py-lg bg-surface-container-low rounded-xl flex flex-col md:flex-row justify-around items-center gap-lg px-lg">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div>
+<h5 class="font-bold">100% Genuine</h5>
+<p class="text-[12px] opacity-70">Sourced directly from manufacturers</p>
+</div>
+</div>
+<div class="w-px h-12 bg-outline-variant hidden md:block"></div>
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">medical_information</span>
+</div>
+<div>
+<h5 class="font-bold">Verified Pharmacists</h5>
+<p class="text-[12px] opacity-70">Quality checks for every order</p>
+</div>
+</div>
+<div class="w-px h-12 bg-outline-variant hidden md:block"></div>
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">encrypted</span>
+</div>
+<div>
+<h5 class="font-bold">Safe &amp; Secure</h5>
+<p class="text-[12px] opacity-70">Your data is fully encrypted</p>
+</div>
+</div>
+</section>
+</main>
+
+<script src="../shared/js/navigation.js"></script>
+<script src="js/main.js"></script>
+</body></html>

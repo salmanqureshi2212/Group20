@@ -1,0 +1,25 @@
+body {
+            font-family: 'Geist', sans-serif;
+            background-color: #F0FDF4; /* Level 0 Base per Style Guidance */
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.8);
+        }
+        .bento-card {
+            background: white;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .bento-card:active {
+            transform: scale(0.98);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+body {
+      min-height: max(884px, 100dvh);
+    }

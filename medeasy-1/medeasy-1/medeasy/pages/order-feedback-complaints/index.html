@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Feedback & Complaints | MedEasy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config" src="js/tailwind-config.js"></script>
+<link href="css/style.css" rel="stylesheet"/>
+
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- Top AppBar (Transactional Variant - Back Button) -->
+<nav class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-container-margin-mobile md:px-container-margin-desktop h-16 bg-surface shadow-[0px_4px_20px_rgba(22,163,74,0.05)]">
+<div class="flex items-center gap-4">
+<button aria-label="Go Back" class="p-2 -ml-2 rounded-full hover:bg-surface-container-low transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-display text-h2-mobile md:text-h2 font-bold text-primary">Feedback & Complaints</h1>
+</div>
+<div class="hidden md:flex items-center gap-md">
+<span class="font-display text-h3 text-on-surface-variant opacity-60">Order #ME-9920</span>
+</div>
+</nav>
+<main class="pt-24 px-container-margin-mobile md:px-container-margin-desktop max-w-4xl mx-auto">
+<!-- Header Info (Mobile Only) -->
+<div class="md:hidden mb-lg">
+<span class="font-body-md text-on-surface-variant px-md py-sm bg-surface-container rounded-full border border-outline-variant">
+                 Order <span class="font-bold text-primary">#ME-9920</span>
+</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+<!-- Main Form Card -->
+<section class="md:col-span-8 space-y-lg">
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-[0px_4px_20px_rgba(22,163,74,0.05)] border border-outline-variant/30">
+<!-- 1. Star Rating -->
+<div class="mb-xl">
+<label class="block font-h3 text-h3 mb-md">Overall Experience</label>
+<div class="flex gap-sm star-rating" id="starContainer">
+<span class="material-symbols-outlined star text-[40px] text-outline-variant hover:text-secondary-container transition-colors" data-value="1">star</span>
+<span class="material-symbols-outlined star text-[40px] text-outline-variant hover:text-secondary-container transition-colors" data-value="2">star</span>
+<span class="material-symbols-outlined star text-[40px] text-outline-variant hover:text-secondary-container transition-colors" data-value="3">star</span>
+<span class="material-symbols-outlined star text-[40px] text-outline-variant hover:text-secondary-container transition-colors" data-value="4">star</span>
+<span class="material-symbols-outlined star text-[40px] text-outline-variant hover:text-secondary-container transition-colors" data-value="5">star</span>
+</div>
+<p class="mt-sm font-caption text-caption text-on-surface-variant">Tap a star to rate your delivery and medicine quality.</p>
+</div>
+<!-- 2. Issue Selection Chips -->
+<div class="mb-xl">
+<label class="block font-h3 text-h3 mb-md">What went wrong?</label>
+<div class="flex flex-wrap gap-sm">
+<button class="issue-chip px-md py-sm rounded-full border border-outline-variant bg-surface-container-low text-on-surface-variant font-body-sm hover:bg-surface-variant transition-colors active:scale-95">Late Delivery</button>
+<button class="issue-chip px-md py-sm rounded-full border border-outline-variant bg-surface-container-low text-on-surface-variant font-body-sm hover:bg-surface-variant transition-colors active:scale-95">Damaged Item</button>
+<button class="issue-chip px-md py-sm rounded-full border border-outline-variant bg-surface-container-low text-on-surface-variant font-body-sm hover:bg-surface-variant transition-colors active:scale-95">Wrong Medicine</button>
+<button class="issue-chip px-md py-sm rounded-full border border-outline-variant bg-surface-container-low text-on-surface-variant font-body-sm hover:bg-surface-variant transition-colors active:scale-95">Professionalism</button>
+<button class="issue-chip px-md py-sm rounded-full border border-outline-variant bg-surface-container-low text-on-surface-variant font-body-sm hover:bg-surface-variant transition-colors active:scale-95">App Bug</button>
+<button class="issue-chip px-md py-sm rounded-full border border-outline-variant bg-surface-container-low text-on-surface-variant font-body-sm hover:bg-surface-variant transition-colors active:scale-95">Other</button>
+</div>
+</div>
+<!-- 3. Detailed Description -->
+<div class="mb-xl">
+<label class="block font-h3 text-h3 mb-md" for="details">Detailed Description</label>
+<textarea class="w-full rounded-xl border border-outline-variant bg-surface p-md font-body-md text-on-surface placeholder:text-outline focus:ring-0 transition-all" id="details" placeholder="Tell us more about your experience..." rows="5"></textarea>
+</div>
+<!-- 4. Photo Upload -->
+<div class="mb-xl">
+<label class="block font-h3 text-h3 mb-md">Proof of Issue (Optional)</label>
+<div class="group relative flex flex-col items-center justify-center border-2 border-dashed border-outline-variant rounded-xl p-xl bg-surface-container-low hover:bg-surface-variant/50 transition-colors cursor-pointer">
+<input accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer" multiple="" type="file"/>
+<span class="material-symbols-outlined text-[48px] text-primary mb-sm">add_a_photo</span>
+<span class="font-body-md text-on-surface-variant">Upload photos or drag & drop</span>
+<span class="font-caption text-caption text-outline">JPG, PNG up to 10MB</span>
+</div>
+</div>
+<!-- 5. Submit Button -->
+<div class="pt-md">
+<button class="w-full md:w-auto px-xl py-md bg-primary text-on-primary font-h3 text-h3 rounded-full hover:bg-primary-container transition-all active:scale-95 shadow-lg flex items-center justify-center gap-sm">
+                            Submit Feedback
+                            <span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Sidebar / Order Summary Glass Card -->
+<aside class="md:col-span-4 space-y-lg">
+<div class="bg-surface-container-high/60 backdrop-blur-md rounded-xl p-lg border border-outline-variant/30 sticky top-24">
+<h2 class="font-h3 text-h3 mb-md text-primary">Order Summary</h2>
+<div class="space-y-md">
+<div class="flex gap-md items-center">
+<div class="w-12 h-12 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A clinical close-up of a standard pharmaceutical blister pack with white and blue capsules, professionally photographed in a bright, medical setting with soft ambient lighting and high-contrast green accents reflecting the MedEasy brand identity. The background is a clean, sterilized laboratory environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACvqEwA5ldUFGfsRdEVGbuXuZBZYesCTh7i6Kb04R0Gyli3BSCUQWUDqQgbnBelxD4AiJwwqP2vjKOdYgoqiXic5626LuEMZsdEB7f8OR2KinMJLoHFX7DWj4bZ0_lCt0LjDVrkNx3ZS1SxY11PiPpb4HOatjrOdM0ALm00raWYaQuhnyph4bbUy-iiHUwF1XUcyzy4GmnOZhk7O7qQH1OsIqFb6PgeAUdLmd4eKUDq72CaJNAUkcWvQ"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-md font-bold truncate">Atorvastatin 20mg</p>
+<p class="font-caption text-on-surface-variant">Qty: 2 Boxes</p>
+</div>
+<p class="font-body-sm font-bold">₹2,085.00</p>
+</div>
+<div class="flex gap-md items-center">
+<div class="w-12 h-12 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A transparent plastic medicine bottle with a white child-proof cap, containing round white pills. The shot is a clean product photograph on a light green gradient surface, symbolizing medical relief and professional healthcare distribution, consistent with the corporate modern aesthetic of the MedEasy application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpCDfm9PW4FrPXw02HcaXPIaYCBsEZYErE8k7RMrqEHtlWZaLHzU65-lBCh0lpKHzMvAjyvEVcKk7HluA-lUkkuk2AS22lsUtpM_j5OO8BmkAp3ELBfOWB8nDzF_XPZwtBozxxRzqnys4zQo0JtHxIdhojoVTv0plpGbw0NOFMr62auaBDR-DMH9MfkO2F0MqcfMlhKr3-XPYd8dLTcwBZwdwCVqfk_5CbmyGjFXyahSqr9hrlZrX5RQ"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-md font-bold truncate">Paracetamol 500mg</p>
+<p class="font-caption text-on-surface-variant">Qty: 1 Bottle</p>
+</div>
+<p class="font-body-sm font-bold">₹710.00</p>
+</div>
+</div>
+<div class="mt-xl pt-lg border-t border-outline-variant">
+<div class="flex justify-between mb-sm">
+<span class="text-on-surface-variant font-body-sm">Subtotal</span>
+<span class="font-body-sm">₹2,795.00</span>
+</div>
+<div class="flex justify-between mb-md">
+<span class="text-on-surface-variant font-body-sm">Delivery Fee</span>
+<span class="text-primary font-body-sm">FREE</span>
+</div>
+<div class="flex justify-between">
+<span class="font-h3 text-h3">Total</span>
+<span class="font-h3 text-h3 text-primary">₹2,795.00</span>
+</div>
+</div>
+<div class="mt-lg p-md bg-secondary-container/20 rounded-xl flex gap-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]">local_pharmacy</span>
+<p class="font-caption text-on-secondary-container">Delivered by <span class="font-bold">MedEasy Pharmacy Center #04</span></p>
+</div>
+</div>
+<!-- Help Center Quick Link -->
+<div class="p-lg rounded-xl bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-between group cursor-pointer hover:border-primary transition-all">
+<div>
+<h4 class="font-body-md font-bold text-on-surface">Need urgent help?</h4>
+<p class="font-caption text-on-surface-variant">Contact our 24/7 Support</p>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</aside>
+</div>
+</main>
+
+<script src="../shared/js/navigation.js"></script>
+<script src="js/main.js"></script>
+</body></html>

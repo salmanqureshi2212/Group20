@@ -1,0 +1,26 @@
+.material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        .star-rating .star {
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .star-rating .star:active {
+            transform: scale(0.8);
+        }
+        .chip-active {
+            background-color: #00873a !important;
+            color: #f7fff2 !important;
+            border-color: #00873a !important;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #006b2c !important;
+            box-shadow: 0 0 0 2px rgba(0, 107, 44, 0.1);
+        }
+body {
+      min-height: max(884px, 100dvh);
+    }

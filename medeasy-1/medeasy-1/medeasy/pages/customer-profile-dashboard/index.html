@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>MedEasy - Profile Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config" src="js/tailwind-config.js"></script>
+<link href="css/style.css" rel="stylesheet"/>
+
+  </head>
+<body class="text-on-background antialiased">
+<!-- Top AppBar (JSON Component) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop h-16 bg-surface dark:bg-surface-dim shadow-[0px_4px_20px_rgba(22,163,74,0.05)]">
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary p-xs hover:bg-surface-container-low transition-colors rounded-full" data-icon="menu">menu</button>
+<h1 class="font-display text-h2-mobile md:text-h2 font-bold text-primary dark:text-secondary-fixed-dim flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-7 h-7 flex-shrink-0" aria-hidden="true">
+                <rect width="48" height="48" rx="10" fill="#16a34a"/>
+                <path d="M19 10h10v10h10v10H29v10H19V30H9V20h10z" fill="#22c55e"/>
+                <path d="M8 30 Q18 18 38 16" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+                <path d="M10 34 Q22 20 40 20" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+              </svg>
+              MedEasy
+            </h1>
+</div>
+<div class="flex items-center gap-sm">
+<button class="material-symbols-outlined text-primary p-xs hover:bg-surface-container-low transition-colors rounded-full" data-icon="shopping_cart">shopping_cart</button>
+</div>
+</header>
+<main class="mt-20 px-container-margin-mobile md:px-container-margin-desktop max-w-5xl mx-auto space-y-lg">
+<!-- Profile Hero Section -->
+<section class="bg-white rounded-xl p-lg shadow-[0px_4px_20px_rgba(22,163,74,0.05)] border border-outline-variant/30 overflow-hidden relative">
+<!-- Background Accent -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16"></div>
+<div class="flex flex-col md:flex-row items-center gap-lg relative z-10">
+<div class="relative group">
+<img class="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-4 border-white shadow-md" id="profile-avatar" data-alt="Profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE1QuDGnlYS_CMYEo7mv_tI-KDQ6vuXabRn1qgNNksML2rvedWR6FSTzyLamTfYh-laaLPuZlNXIYACzqI6L5wOMw4C2kdOYDv46RHcm3s31kEf_VVAyjkuEUCIhttHNrzsFH75JcL0YduVzdV0dl-0LeShLbpl-4fGe5eLNQbzEG7YrH8p0ejTGMN9olUZn8P1DOAzEc_rdf63Uq416FRaM2H0AY1U4o_KlcexpxhXzBLrQB1UfMF9A"/>
+<div class="absolute bottom-1 right-1 bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm border border-white">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-caption font-bold">Verified</span>
+</div>
+</div>
+<div class="text-center md:text-left flex-1">
+<h2 class="font-display text-h1-mobile md:text-h1 text-on-background" data-user-name>Alex Johnson</h2>
+<p class="font-body-md text-secondary font-semibold flex items-center justify-center md:justify-start gap-1" data-user-joined>
+<span class="material-symbols-outlined text-[18px]">stars</span>
+                        Premium Member
+                    </p>
+<p class="font-body-sm text-on-surface-variant mt-1" data-user-email></p>
+<p class="font-body-sm text-on-surface-variant" data-user-phone></p>
+<div class="mt-md flex flex-wrap gap-sm justify-center md:justify-start">
+<div class="bg-surface-container-low px-md py-sm rounded-lg flex flex-col items-center min-w-[80px]">
+<span class="font-display text-h3 text-primary">24</span>
+<span class="text-caption text-on-surface-variant">Orders</span>
+</div>
+<div class="bg-surface-container-low px-md py-sm rounded-lg flex flex-col items-center min-w-[80px]">
+<span class="font-display text-h3 text-primary">12</span>
+<span class="text-caption text-on-surface-variant">Prescriptions</span>
+</div>
+<div class="bg-surface-container-low px-md py-sm rounded-lg flex flex-col items-center min-w-[80px]">
+<span class="font-display text-h3 text-primary">3</span>
+<span class="text-caption text-on-surface-variant">Addresses</span>
+</div>
+</div>
+</div>
+<button class="w-full md:w-auto px-lg py-md bg-primary text-on-primary font-bold rounded-lg hover:bg-primary-container transition-all active:scale-95 flex items-center justify-center gap-sm shadow-md">
+<span class="material-symbols-outlined">edit</span>
+                    Edit Profile
+                </button>
+</div>
+</section>
+<!-- Bento Grid Dashboard -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- My Records & History (Large Bento Item) -->
+<div class="md:col-span-2 space-y-md">
+<h3 class="font-h3 text-on-background flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">folder_shared</span>
+                    Records &amp; History
+                </h3>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-md">
+<!-- Order History -->
+<button class="bento-card p-md rounded-xl shadow-[0px_4px_20px_rgba(22,163,74,0.05)] border border-outline-variant/20 flex flex-col items-start gap-sm hover:border-primary/40 text-left">
+<div class="p-sm bg-surface-container-highest rounded-lg text-primary">
+<span class="material-symbols-outlined">shopping_bag</span>
+</div>
+<div class="mt-xs">
+<h4 class="font-body-md font-bold text-on-background">Orders</h4>
+<p class="text-caption text-on-surface-variant">View active &amp; past delivery status</p>
+</div>
+</button>
+<!-- Prescription Vault -->
+<button class="bento-card p-md rounded-xl shadow-[0px_4px_20px_rgba(22,163,74,0.05)] border border-outline-variant/20 flex flex-col items-start gap-sm hover:border-primary/40 text-left">
+<div class="p-sm bg-surface-container-highest rounded-lg text-primary">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div class="mt-xs">
+<h4 class="font-body-md font-bold text-on-background">Prescriptions</h4>
+<p class="text-caption text-on-surface-variant">12 verified medical uploads</p>
+</div>
+</button>
+<!-- Lab Reports -->
+<button class="bento-card p-md rounded-xl shadow-[0px_4px_20px_rgba(22,163,74,0.05)] border border-outline-variant/20 flex flex-col items-start gap-sm hover:border-primary/40 text-left">
+<div class="p-sm bg-surface-container-highest rounded-lg text-primary">
+<span class="material-symbols-outlined">biotech</span>
+</div>
+<div class="mt-xs">
+<h4 class="font-body-md font-bold text-on-background">Lab Reports</h4>
+<p class="text-caption text-on-surface-variant">Diagnostic results &amp; data</p>
+</div>
+</button>
+</div>
+<!-- Recent Activity Preview List -->
+<div class="bg-white rounded-xl shadow-[0px_4px_20px_rgba(22,163,74,0.05)] border border-outline-variant/20 overflow-hidden">
+<div class="p-md border-b border-outline-variant/10 flex justify-between items-center">
+<h4 class="font-body-md font-bold text-on-background">Recent Activity</h4>
+<button class="text-caption text-primary font-bold">View All</button>
+</div>
+<div class="divide-y divide-outline-variant/10">
+<div class="p-md flex items-center justify-between">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="font-body-md font-semibold">Order #ME-9920 Delivered</p>
+<p class="text-caption text-on-surface-variant">Oct 24, 2023 • 2 items</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+<div class="p-md flex items-center justify-between">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">description</span>
+<div>
+<p class="font-body-md font-semibold">New Prescription Uploaded</p>
+<p class="text-caption text-on-surface-variant">Oct 20, 2023 • Dr. Sarah Smith</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Settings & Management Side Column -->
+<div class="space-y-md">
+<h3 class="font-h3 text-on-background flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">manage_accounts</span>
+                    Management
+                </h3>
+<div class="bg-white rounded-xl shadow-[0px_4px_20px_rgba(22,163,74,0.05)] border border-outline-variant/20 divide-y divide-outline-variant/10">
+<a class="flex items-center justify-between p-md hover:bg-surface-container-low transition-colors group" href="#">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">location_on</span>
+<span class="font-body-md">Address Book</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-md hover:bg-surface-container-low transition-colors group" href="#">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">payments</span>
+<span class="font-body-md">Payment Methods</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-md hover:bg-surface-container-low transition-colors group" href="#">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">notifications</span>
+<span class="font-body-md">Notifications</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</a>
+</div>
+<!-- Security Section -->
+<h3 class="font-h3 text-on-background flex items-center gap-sm pt-md">
+<span class="material-symbols-outlined text-primary">security</span>
+                    Security
+                </h3>
+<div class="bg-white rounded-xl shadow-[0px_4px_20px_rgba(22,163,74,0.05)] border border-outline-variant/20 divide-y divide-outline-variant/10">
+<a class="flex items-center justify-between p-md hover:bg-surface-container-low transition-colors" href="#">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">key</span>
+<span class="font-body-md">Password &amp; 2FA</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-md hover:bg-surface-container-low transition-colors" href="#">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">devices</span>
+<span class="font-body-md">Active Sessions</span>
+</div>
+<span class="text-caption font-bold bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full">2 Active</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Support & Logout Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="bg-white rounded-xl p-md border border-outline-variant/20 shadow-[0px_4px_20px_rgba(22,163,74,0.05)] flex items-center justify-between group cursor-pointer hover:bg-surface-container-low transition-all">
+<div class="flex items-center gap-md">
+<div class="p-sm bg-tertiary-container/10 rounded-lg text-tertiary">
+<span class="material-symbols-outlined">help</span>
+</div>
+<div>
+<p class="font-body-md font-bold">Help Center &amp; FAQs</p>
+<p class="text-caption text-on-surface-variant">Get support for your healthcare needs</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">arrow_forward</span>
+</div>
+<div class="bg-white rounded-xl p-md border border-outline-variant/20 shadow-[0px_4px_20px_rgba(22,163,74,0.05)] flex items-center justify-between group cursor-pointer hover:bg-surface-container-low transition-all">
+<div class="flex items-center gap-md">
+<div class="p-sm bg-surface-container-highest rounded-lg text-on-surface-variant">
+<span class="material-symbols-outlined">gavel</span>
+</div>
+<div>
+<p class="font-body-md font-bold">Terms &amp; Privacy</p>
+<p class="text-caption text-on-surface-variant">Legal information and data policies</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">arrow_forward</span>
+</div>
+</div>
+<!-- Logout CTA -->
+<div class="pt-lg pb-xl flex justify-center">
+<button data-logout class="px-xl py-md border-2 border-error text-error font-bold rounded-lg flex items-center gap-sm hover:bg-error/5 transition-colors active:scale-95">
+<span class="material-symbols-outlined">logout</span>
+                Logout from Account
+            </button>
+</div>
+</main>
+
+<script src="../shared/js/navigation.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  // Auth guard — redirect to login if no session
+  if (localStorage.getItem('me_session') !== '1') {
+    window.location.href = '../login/index.html';
+  }
+
+  // Load user data
+  var stored = localStorage.getItem('me_user');
+  var user = stored ? JSON.parse(stored) : null;
+
+  if (user) {
+    // Name
+    var nameEls = document.querySelectorAll('[data-user-name]');
+    nameEls.forEach(function (el) { el.textContent = user.fullName || 'User'; });
+
+    // Email
+    var emailEls = document.querySelectorAll('[data-user-email]');
+    emailEls.forEach(function (el) { el.textContent = user.email || ''; });
+
+    // Phone
+    var phoneEls = document.querySelectorAll('[data-user-phone]');
+    phoneEls.forEach(function (el) { el.textContent = user.phone ? '+91 ' + user.phone : ''; });
+
+    // Member since
+    var joinedEls = document.querySelectorAll('[data-user-joined]');
+    joinedEls.forEach(function (el) { el.textContent = 'Member since ' + (user.joined || ''); });
+
+    // Initials avatar fallback
+    if (user.fullName) {
+      var parts = user.fullName.split(' ').filter(Boolean);
+      var initials = parts.map(function (p) { return p[0].toUpperCase(); }).slice(0, 2).join('');
+      var avatarImg = document.getElementById('profile-avatar');
+      if (avatarImg) {
+        avatarImg.style.display = 'none';
+        var avatarWrap = avatarImg.parentElement;
+        var circle = document.createElement('div');
+        circle.style.cssText = 'width:100%;height:100%;border-radius:50%;background:linear-gradient(135deg,#006b2c,#22c55e);display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:700;color:#fff;';
+        circle.textContent = initials;
+        avatarWrap.insertBefore(circle, avatarImg);
+      }
+    }
+  }
+
+  // Logout
+  document.querySelectorAll('[data-logout]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      localStorage.removeItem('me_session');
+      window.location.href = '../login/index.html';
+    });
+  });
+})();
+</script>
+</body></html>

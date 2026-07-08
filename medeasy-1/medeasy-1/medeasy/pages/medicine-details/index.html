@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Medicine Details | MedEasy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+<script id="tailwind-config" src="js/tailwind-config.js"></script>
+
+  </head>
+<body class="bg-background text-on-surface antialiased">
+<!-- Top App Bar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop h-16 bg-surface dark:bg-surface-dim shadow-[0px_4px_20px_rgba(22,163,74,0.05)]">
+<div class="flex items-center gap-4">
+<button class="p-2 -ml-2 rounded-full hover:bg-surface-container-low transition-colors active:scale-95 duration-150 text-on-surface-variant">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<span class="font-display text-h2-mobile md:text-h2 font-bold text-primary dark:text-secondary-fixed-dim flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-7 h-7 flex-shrink-0" aria-hidden="true">
+                <rect width="48" height="48" rx="10" fill="#16a34a"/>
+                <path d="M19 10h10v10h10v10H29v10H19V30H9V20h10z" fill="#22c55e"/>
+                <path d="M8 30 Q18 18 38 16" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+                <path d="M10 34 Q22 20 40 20" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+              </svg>
+              MedEasy
+            </span>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors active:scale-95 duration-150 text-on-surface-variant">
+<span class="material-symbols-outlined">share</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors active:scale-95 duration-150 text-on-surface-variant relative">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+</div>
+</header>
+<main class="pt-20 pb-32 px-container-margin-mobile md:px-container-margin-desktop max-w-7xl mx-auto">
+<div class="lg:grid lg:grid-cols-12 lg:gap-xl">
+<!-- Left Column: Product Image & Identity -->
+<div class="lg:col-span-7 flex flex-col gap-lg">
+<!-- Image Section -->
+<div class="w-full aspect-[4/3] md:aspect-[16/10] bg-white rounded-xl shadow-[0px_4px_20px_rgba(22,163,74,0.05)] overflow-hidden flex items-center justify-center p-lg relative">
+<img class="w-full h-full object-contain mix-blend-multiply" data-alt="Medicine product packaging" id="product-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9gvhZPebcbwA57i99_oPV0HR6HKMqID6X-tvfo4dVFJVtnxBLFn683dk-zXaGxvJQ8VAeGl5Bd41vzZLa5wPL04YwVcbh0fpfUOzvHSWHTNlSXdzQNwSpN0kXUq6nkQ4K88eNmMz1jHcnonGfTIqpqqNq_24FXBGs3wLAy4G8YVa4no-nuXSRUN1vKjS8MJCFNLseRf8vGLVBTVS4NdnLeYtZ1jp9-Mi3gtpuMToID8CZ1rp9s92mng"/>
+<div class="absolute bottom-4 right-4 bg-white/80 backdrop-blur-md px-3 py-1 rounded-full text-caption font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">zoom_in</span>
+<span>Tap to enlarge</span>
+</div>
+</div>
+<!-- Product Identity (Mobile: Hidden, handled below) -->
+<div class="hidden lg:flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<div>
+<h1 class="font-h1 text-h1 text-on-surface" id="product-title-desktop">Amoxicillin 500mg</h1>
+<p class="text-on-surface-variant font-body-md" id="product-generic-desktop">Generic: Amoxicillin Trihydrate</p>
+<p class="text-primary font-medium text-body-sm mt-1" id="product-manufacturer-desktop">GlaxoSmithKline Pharmaceuticals</p>
+</div>
+<div class="text-right">
+<span class="text-h1 text-primary font-bold" id="product-price-desktop">₹1,210.00</span>
+<p class="text-caption text-on-surface-variant">Incl. all taxes</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Info & Action Bar -->
+<div class="lg:col-span-5 flex flex-col gap-lg mt-md lg:mt-0">
+<!-- Identity (Mobile Only) -->
+<div class="lg:hidden flex flex-col gap-1">
+<h1 class="font-h1-mobile text-h1-mobile text-on-surface" id="product-title-mobile">Amoxicillin 500mg</h1>
+<p class="text-on-surface-variant text-body-sm" id="product-generic-mobile">Generic: Amoxicillin Trihydrate</p>
+<p class="text-primary font-medium text-caption mt-1" id="product-manufacturer-mobile">GlaxoSmithKline Pharmaceuticals</p>
+<div class="mt-2">
+<span class="text-h2-mobile text-primary font-bold" id="product-price-mobile">₹1,210.00</span>
+<span class="text-caption text-on-surface-variant ml-2">Incl. all taxes</span>
+</div>
+</div>
+<!-- Key Info Chips -->
+<div class="flex flex-wrap gap-2">
+<div class="px-3 py-1.5 rounded-full bg-error-container/20 text-error flex items-center gap-1.5 border border-error/10" id="product-rx-chip">
+<span class="material-symbols-outlined text-[18px]">assignment_late</span>
+<span class="text-caption font-bold">Prescription Required</span>
+</div>
+<div class="px-3 py-1.5 rounded-full bg-primary-container/10 text-primary flex items-center gap-1.5 border border-primary/10">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span class="text-caption font-bold">In Stock</span>
+</div>
+<div class="px-3 py-1.5 rounded-full bg-tertiary-container/10 text-tertiary flex items-center gap-1.5 border border-tertiary/10">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span class="text-caption font-bold" id="product-delivery-chip">15-min Delivery</span>
+</div>
+</div>
+<!-- Batch & Expiry Information -->
+<div class="grid grid-cols-2 gap-4">
+<div class="p-3 rounded-xl bg-surface border border-outline-variant/30 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container/15 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">factory</span>
+</div>
+<div>
+<p class="text-caption font-bold text-on-surface">Manufacturing Date</p>
+<p class="text-[11px] text-on-surface-variant leading-tight" id="product-mfg-date">22 February 2025</p>
+</div>
+</div>
+<div class="p-3 rounded-xl bg-surface border border-outline-variant/30 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">event_busy</span>
+</div>
+<div>
+<p class="text-caption font-bold text-on-surface">Expiry Date</p>
+<p class="text-[11px] text-on-surface-variant leading-tight" id="product-expiry-date">21 February 2028</p>
+</div>
+</div>
+</div>
+<!-- Trust Indicators -->
+<div class="grid grid-cols-2 gap-4">
+<div class="p-3 rounded-xl bg-surface border border-outline-variant/30 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<div>
+<p class="text-caption font-bold text-on-surface">Verified</p>
+<p class="text-[10px] text-on-surface-variant leading-tight">By Pharmacist</p>
+</div>
+</div>
+<div class="p-3 rounded-xl bg-surface border border-outline-variant/30 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">inventory_2</span>
+</div>
+<div>
+<p class="text-caption font-bold text-on-surface">Secure</p>
+<p class="text-[10px] text-on-surface-variant leading-tight">Tamper-Proof</p>
+</div>
+</div>
+</div>
+<!-- Action Section (Desktop-only version, mobile is bottom bar) -->
+<div class="hidden lg:flex flex-col gap-md p-lg bg-surface-container-low rounded-xl border border-outline-variant/20">
+<div class="flex items-center justify-between">
+<span class="text-body-md font-medium">Select Quantity</span>
+<div class="flex items-center bg-white border border-outline-variant rounded-full p-1">
+<button id="desktop-minus" class="w-8 h-8 rounded-full hover:bg-surface-container flex items-center justify-center text-primary transition-colors">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<span class="w-10 text-center font-bold" id="desktop-qty">1</span>
+<button id="desktop-plus" class="w-8 h-8 rounded-full hover:bg-surface-container flex items-center justify-center text-primary transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<button class="w-full py-4 bg-primary text-white rounded-xl font-bold text-body-md shadow-lg shadow-primary/20 hover:bg-primary-container transition-all active:scale-[0.98]">
+                        Add to Cart
+                    </button>
+<p class="text-center text-caption text-on-surface-variant flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]">info</span>
+                        Free shipping on orders above ₹4,000
+                    </p>
+</div>
+</div>
+</div>
+<!-- Detailed Sections -->
+<div class="mt-xl lg:mt-24 space-y-md">
+<h2 class="font-h2 text-h2-mobile md:text-h2 border-b border-outline-variant pb-4">Medical Information</h2>
+<details class="group bg-white rounded-xl shadow-[0px_4px_20px_rgba(22,163,74,0.05)]" open="">
+<summary class="flex items-center justify-between p-lg cursor-pointer list-none">
+<span class="font-h3 text-on-surface flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">medical_services</span>
+                        Common Uses
+                    </span>
+<span class="material-symbols-outlined text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-lg pb-lg text-on-surface-variant font-body-md leading-relaxed" id="product-uses">
+                    Used to treat bacterial infections such as pneumonia, bronchitis, and infections of the ears, nose, throat, urinary tract, and skin. It works by stopping the growth of bacteria. It will not work for viral infections (such as common cold, flu).
+                </div>
+</details>
+<details class="group bg-white rounded-xl shadow-[0px_4px_20px_rgba(22,163,74,0.05)]">
+<summary class="flex items-center justify-between p-lg cursor-pointer list-none">
+<span class="font-h3 text-on-surface flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">medication</span>
+                        Dosage &amp; Administration
+                    </span>
+<span class="material-symbols-outlined text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-lg pb-lg text-on-surface-variant font-body-md leading-relaxed" id="product-dosage">
+                    Take this medication by mouth with or without food as directed by your doctor, usually every 8 or 12 hours. The dosage is based on your medical condition and response to treatment. For the best effect, take this antibiotic at evenly spaced times.
+                </div>
+</details>
+<details class="group bg-white rounded-xl shadow-[0px_4px_20px_rgba(22,163,74,0.05)]">
+<summary class="flex items-center justify-between p-lg cursor-pointer list-none">
+<span class="font-h3 text-on-surface flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">warning</span>
+                        Side Effects
+                    </span>
+<span class="material-symbols-outlined text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-lg pb-lg text-on-surface-variant font-body-md leading-relaxed" id="product-side-effects">
+                    Common side effects include nausea, vomiting, or diarrhea. If any of these effects last or get worse, tell your doctor promptly. Remember that your doctor has prescribed this medication because they have judged that the benefit to you is greater than the risk of side effects.
+                </div>
+</details>
+</div>
+<!-- Similar Products Carousel -->
+<section class="mt-24">
+<div class="flex items-center justify-between mb-lg">
+<h2 class="font-h2 text-h2-mobile md:text-h2">Similar Products</h2>
+<button class="text-primary font-bold text-body-sm flex items-center gap-1 hover:underline">
+                    View All
+                    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<div class="flex overflow-x-auto gap-md no-scrollbar pb-lg -mx-container-margin-mobile px-container-margin-mobile">
+<!-- Card 1 -->
+<div class="min-w-[160px] md:min-w-[200px] bg-white rounded-xl p-3 shadow-[0px_4px_20px_rgba(22,163,74,0.05)] border border-outline-variant/10 flex flex-col gap-2 similar-product-card cursor-pointer" data-product-id="azithromycin-500mg">
+<div class="w-full aspect-square bg-surface-container-low rounded-lg p-2 overflow-hidden">
+<img class="w-full h-full object-contain" data-alt="A small white box of Azithromycin tablets, displayed in a clean healthcare-themed catalog view. The lighting is bright and airy, using a soft green color palette consistent with the MedEasy brand. The packaging features minimal typography and high-end medical design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMCE4AG3T4GKQIOXDI4qQhFMgwsx-bns0Ip8RBpQEXaKWFzGdDqsRy8G8bvJa_iDnPvi9S9sWhhKNH3urpyPdwxSOncwl36yY7b0Ug9RcumXZx_ctFiDc0qutWSAkqTS8s9JeBE0Y7bnZnFiZ9q6gO-v3b4Qcrqq1zUc9EN_uWQ6N-5_AREt15UYCc5SR9F3kYklwhO0V0LRz5Ev9zCPzFCZ9_PyfMyPLE76zbi28S3vzlejrMKMO0eQ"/>
+</div>
+<div>
+<h4 class="text-body-sm font-bold text-on-surface truncate">Azithromycin</h4>
+<p class="text-caption text-on-surface-variant">500mg (3 Tabs)</p>
+<p class="text-primary font-bold mt-1">₹769.00</p>
+</div>
+<button class="w-full py-1.5 border border-primary text-primary rounded-lg text-caption font-bold hover:bg-primary-container/10 transition-colors">
+                        Add
+                    </button>
+</div>
+<!-- Card 2 -->
+<div class="min-w-[160px] md:min-w-[200px] bg-white rounded-xl p-3 shadow-[0px_4px_20px_rgba(22,163,74,0.05)] border border-outline-variant/10 flex flex-col gap-2 similar-product-card cursor-pointer" data-product-id="ciprofloxacin-500mg">
+<div class="w-full aspect-square bg-surface-container-low rounded-lg p-2 overflow-hidden">
+<img class="w-full h-full object-contain" data-alt="A professional pharmaceutical product shot of Ciprofloxacin 500mg packaging. The box is white with dark green accents, reflecting medical safety and precision. The background is a crisp, clean white, shot with high-key lighting for a premium pharmacy app aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9-m6fHKjF6tF7YbbZxtPYabNMmhwcatOKxipYA05xYu4Fdag9Fy5Fl9lsIC6l7dZFMmwMw1OeYkdNxcwIoiv82rgfrP7iyLcDtplPzCVg1hnGAEyuUvsWyCa3fz7fGEFoesWQchUk6-UuvtIMmAcwns2cF0gVG-s1Tf983fSiuOu-gTaexwqnZkZBVtrwdiyescI4A0VWCud6DoIpLr2Y4blcIYghrG3cMYRvDj4TUoeHU4UOWeCODg"/>
+</div>
+<div>
+<h4 class="text-body-sm font-bold text-on-surface truncate">Ciprofloxacin</h4>
+<p class="text-caption text-on-surface-variant">500mg (10 Caps)</p>
+<p class="text-primary font-bold mt-1">₹1,537.00</p>
+</div>
+<button class="w-full py-1.5 border border-primary text-primary rounded-lg text-caption font-bold hover:bg-primary-container/10 transition-colors">
+                        Add
+                    </button>
+</div>
+<!-- Card 3 -->
+<div class="min-w-[160px] md:min-w-[200px] bg-white rounded-xl p-3 shadow-[0px_4px_20px_rgba(22,163,74,0.05)] border border-outline-variant/10 flex flex-col gap-2 similar-product-card cursor-pointer" data-product-id="doxycycline-100mg">
+<div class="w-full aspect-square bg-surface-container-low rounded-lg p-2 overflow-hidden">
+<img class="w-full h-full object-contain" data-alt="Packaging for Doxycycline 100mg capsules, shown in a high-fidelity healthcare UI product grid. The design uses a palette of soft whites and deep clinical greens. The mood is trustworthy and organized, featuring professional studio product lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQqdan83cjTBzzW7fVI-v8yTdkVTle8mqiqh4Ql_0aYTux0_LYxgQbhO1REJ9LkGRpsr5YyrZswVA5imb1i7eT2Cee5UYjGvNKXmxK2rw7mE_5bh4BLj3FToyyIiS1pZ8vfgIGCxAayRCSylCZD07L8QRnd4USYZhOJeDep4HjYkLkmh8nfAdT_ZMzH0PxGGzhx6KDKKvi5Zs0VOBSrJwkSSlXxDlJ0kyT2aKD5Rmungv3KZENIgrHkg"/>
+</div>
+<div>
+<h4 class="text-body-sm font-bold text-on-surface truncate">Doxycycline</h4>
+<p class="text-caption text-on-surface-variant">100mg (10 Caps)</p>
+<p class="text-primary font-bold mt-1">₹1,011.00</p>
+</div>
+<button class="w-full py-1.5 border border-primary text-primary rounded-lg text-caption font-bold hover:bg-primary-container/10 transition-colors">
+                        Add
+                    </button>
+</div>
+<!-- Card 4 -->
+<div class="min-w-[160px] md:min-w-[200px] bg-white rounded-xl p-3 shadow-[0px_4px_20px_rgba(22,163,74,0.05)] border border-outline-variant/10 flex flex-col gap-2 similar-product-card cursor-pointer" data-product-id="augmentin-625mg">
+<div class="w-full aspect-square bg-surface-container-low rounded-lg p-2 overflow-hidden">
+<img class="w-full h-full object-contain" data-alt="A clean pharmaceutical pack of Augmentin 625mg, presented in a minimalist health-app style catalog. The scene is illuminated with soft, natural-looking morning light, highlighting the premium green-themed brand identity of MedEasy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQ3bM42cDgvIi-wWWGqP7lkHmE-IZANsja-sFIu2VBMR1zTR0FsJnCewsFmY6iZgY-OnejElcLnpOFsBpeTwEuwBzo_1RqsTxITaj6Kyhi-cDRG62g_9mVpEJFYoT9SScwtrgtJ-grDC4-7Dg0fS3bLfvGfOajcBAqiLEfqOAq7gRvEsjJIpqbyDLGCPFnqGEXbBcQrIMyLiYoqvwA3P1stHqnonNThbkodcbWQ17LMTEUxqABTEdGyg"/>
+</div>
+<div>
+<h4 class="text-body-sm font-bold text-on-surface truncate">Augmentin</h4>
+<p class="text-caption text-on-surface-variant">625mg (10 Tabs)</p>
+<p class="text-primary font-bold mt-1">₹1,838.00</p>
+</div>
+<button class="w-full py-1.5 border border-primary text-primary rounded-lg text-caption font-bold hover:bg-primary-container/10 transition-colors">
+                        Add
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Bar (Mobile Only) -->
+<div class="lg:hidden fixed bottom-0 left-0 w-full p-4 glass-card border-t border-outline-variant/20 z-[60] flex items-center gap-4">
+<div class="flex items-center bg-white border border-outline-variant rounded-full p-1 h-14">
+<button class="w-10 h-10 rounded-full hover:bg-surface-container flex items-center justify-center text-primary active:scale-90 transition-transform" id="mobile-minus">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<span class="w-8 text-center font-bold" id="mobile-qty">1</span>
+<button class="w-10 h-10 rounded-full hover:bg-surface-container flex items-center justify-center text-primary active:scale-90 transition-transform" id="mobile-plus">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<button class="flex-1 h-14 bg-primary text-white rounded-full font-bold text-body-md shadow-lg shadow-primary/20 hover:bg-primary-container transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">shopping_bag</span>
+            Add to Cart
+        </button>
+</div>
+<script src="js/products.js"></script>
+<script src="../shared/js/navigation.js"></script>
+<script src="js/main.js"></script>
+</body></html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config" src="js/tailwind-config.js"></script>
+<link href="css/style.css" rel="stylesheet"/>
+
+  </head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim w-full sticky top-0 z-50 shadow-sm flex items-center justify-between px-md h-16 w-full">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 duration-100 p-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">arrow_back</span>
+</button>
+<h1 class="font-h3 text-h3 text-on-surface">Pharmacy Details</h1>
+</div>
+<button class="active:scale-95 duration-100 p-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">favorite</span>
+</button>
+</header>
+<main class="max-w-screen-xl mx-auto px-gutter md:px-container-margin-desktop py-lg space-y-lg">
+<!-- Hero Section -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-lg items-start">
+<div class="relative rounded-xl overflow-hidden aspect-[16/9] md:aspect-square card-shadow">
+<img class="w-full h-full object-cover" data-alt="A premium, ultra-modern pharmacy storefront featuring large glass windows and clean minimalist architecture. The interior is brightly lit with warm, clinical-grade lighting, showcasing organized medical shelves. Outside, subtle green ambient lighting highlights the professional branding. The overall aesthetic is sleek, corporate, and trustworthy, with high-quality architectural photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7jTkxZe352TSxIuSeaU4cSIQD8uuMEGjVhRrStuaBmFOON4PZlcwUyN7oqbpYJfZfuZaeKeAleU-cMi51aRATzfOEylOLdEjbyqr2n1IduDX7zBU4yOH0O6wXInXXlkuL48IvqBaYGXe6xsAsGGLiiCVMe3M5zOT0bbyJmCK1dVBVAMClFlxb4prQIMsfI-AHzJByaNTKvvySz5gxbz_1K_44A3kqZIFXW1LBXL410A3GCavpLAxCTQ"/>
+<div class="absolute top-4 left-4">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-caption text-caption flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        In Stock
+                    </span>
+</div>
+</div>
+<div class="space-y-md">
+<div class="space-y-sm">
+<div class="flex items-center gap-2">
+<h2 class="font-h1-mobile text-h1-mobile md:font-h1 md:text-h1 text-on-surface">Apollo Pharmacy</h2>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;" title="Verified Partner">verified</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center text-secondary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold ml-1">4.8</span>
+</span>
+<span>•</span>
+<span>1.2 km away</span>
+</div>
+</div>
+<div class="p-md bg-surface-container-low rounded-xl space-y-sm card-shadow">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">location_on</span>
+<div class="font-body-md text-body-md text-on-surface">Plot 42, Health Street, Sector 5</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">schedule</span>
+<div class="font-body-md text-body-md font-semibold text-secondary">Open 24/7</div>
+</div>
+</div>
+<!-- Quick Actions -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-sm pt-2">
+<button class="flex items-center justify-center gap-2 bg-primary text-on-primary py-3 px-4 rounded-xl font-body-md text-body-md hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined">call</span>
+                        Call Pharmacy
+                    </button>
+<button class="flex items-center justify-center gap-2 bg-secondary-container text-on-secondary-container py-3 px-4 rounded-xl font-body-md text-body-md hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined">near_me</span>
+                        Directions
+                    </button>
+<button class="flex items-center justify-center gap-2 border border-primary text-primary py-3 px-4 rounded-xl font-body-md text-body-md hover:bg-surface-container-high active:scale-95 transition-all">
+<span class="material-symbols-outlined">chat_bubble</span>
+                        Chat
+                    </button>
+</div>
+</div>
+</section>
+<!-- Medicine Listing Section -->
+<section class="space-y-md">
+<div class="sticky top-20 z-40 bg-background/80 backdrop-blur-md py-2 space-y-md">
+<!-- Search -->
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant">search</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-primary font-body-md text-body-md shadow-sm" placeholder="Search medicines in this pharmacy" type="text"/>
+</div>
+<!-- Category Chips -->
+<div class="flex gap-2 overflow-x-auto hide-scrollbar pb-2">
+<button class="px-5 py-2 rounded-full bg-primary text-on-primary font-body-sm text-body-sm whitespace-nowrap">All</button>
+<button class="px-5 py-2 rounded-full bg-surface-container text-on-surface-variant font-body-sm text-body-sm whitespace-nowrap hover:bg-surface-container-high transition-colors">Prescription</button>
+<button class="px-5 py-2 rounded-full bg-surface-container text-on-surface-variant font-body-sm text-body-sm whitespace-nowrap hover:bg-surface-container-high transition-colors">OTC</button>
+<button class="px-5 py-2 rounded-full bg-surface-container text-on-surface-variant font-body-sm text-body-sm whitespace-nowrap hover:bg-surface-container-high transition-colors">Wellness</button>
+<button class="px-5 py-2 rounded-full bg-surface-container text-on-surface-variant font-body-sm text-body-sm whitespace-nowrap hover:bg-surface-container-high transition-colors">Baby Care</button>
+</div>
+</div>
+<!-- Medicine Cards Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-md flex flex-col space-y-sm card-shadow hover:translate-y-[-4px] transition-transform duration-300">
+<div class="aspect-square bg-surface-container rounded-lg flex items-center justify-center overflow-hidden mb-2">
+<img class="object-contain w-full h-full p-4" data-alt="Professional studio photograph of a box of Paracetamol 500mg tablets, clean medical packaging design, bright white background, crisp commercial medical photography, soft green accents to match the healthcare brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSfskhG_kcxVyFZjNaR56T90viP3QTOIoLdq8GCM6f77TPe7V_TspNdC3TfCI0S2a87Q4rZsQ1-Zqmc0C9TswRvxLnAdWB7wrlS1I0ptiUjCv2Brxkv2m65Qhvk-0gDwM8NmO_naN-5pdNO8uNZHzq5n-16takUKjDMJN09TO783Oyr95XIyv_qqDuQwi1TcN7uOt9Wx6dAnc88f1ExqQMemU9bJzFP9D-S5unQn6_GyIVE8d-uVISxQ"/>
+</div>
+<div class="flex-grow">
+<h3 class="font-h3 text-h3 text-on-surface leading-tight">Paracetamol 500mg</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Pain Relief • 10 Tablets</p>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-h3 text-h3 text-on-surface">₹45.00</span>
+<button class="bg-primary text-on-primary p-2 rounded-lg active:scale-90 transition-transform flex items-center justify-center">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-md flex flex-col space-y-sm card-shadow hover:translate-y-[-4px] transition-transform duration-300">
+<div class="aspect-square bg-surface-container rounded-lg flex items-center justify-center overflow-hidden mb-2">
+<img class="object-contain w-full h-full p-4" data-alt="High-quality commercial shot of Otrivin Nasal Spray bottle on a clean white surface with soft reflective lighting. The medical packaging is visible, conveying reliability and medical safety. Neutral, clinical atmosphere with subtle green brand hues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHbMyoHKb8T65liy3ywzN9YYZWX5N9OS5JWh8O6Cc_1o75VDMTmWA34_-1VrJS8tjjXjeI2lcwPkaDyGR-Rj8H16zHan4xv5vYs4EEgTiTppn8Zn9t9uWX1SFjlYaVqqNR2iQUq1s61wU1GU3M35n-SABHJWOHbmAZ-XlcxgwOuNOvk91ZO86Xdb5jhLZfwIgvLcWizcD5TRXv8Uz7nDcnBeigWAg525FtRoCvQYVDO_LqxjJlKGLpZg"/>
+</div>
+<div class="flex-grow">
+<h3 class="font-h3 text-h3 text-on-surface leading-tight">Otrivin Spray</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Cold Relief • 10ml</p>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-h3 text-h3 text-on-surface">₹120.00</span>
+<button class="bg-primary text-on-primary p-2 rounded-lg active:scale-90 transition-transform flex items-center justify-center">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-md flex flex-col space-y-sm card-shadow hover:translate-y-[-4px] transition-transform duration-300">
+<div class="aspect-square bg-surface-container rounded-lg flex items-center justify-center overflow-hidden mb-2">
+<img class="object-contain w-full h-full p-4" data-alt="Minimalist pharmaceutical product photography of Ibuprofen 200mg capsules. Soft white studio lighting, focus on clean white and blue packaging. Modern health-tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXZfqMWO4I1BclyZSlCdrnucV4f158oF8jVgiyxfvlQhm2QJy8VYPueT2QfkF4okp0O9vTH2bHnBVtKTuV-3MZgQqgh4EXJ-vSQZGNgghnt3r8MSnmuDklSjkxLyBcISZNdTuBWS55bqrJaz3OF_AzECXxVt8OSxa2N-g9YuTxpl4oZlLzAQ0QRHrR6-riPZDTjmG9eHWoYP9uOtL16A2I1TA04qmDMHE6nZsr-CU7WhRI4808IEPKKw"/>
+</div>
+<div class="flex-grow">
+<h3 class="font-h3 text-h3 text-on-surface leading-tight">Ibuprofen 200mg</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Pain & Fever • 15 Caps</p>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-h3 text-h3 text-on-surface">₹32.00</span>
+<button class="bg-primary text-on-primary p-2 rounded-lg active:scale-90 transition-transform flex items-center justify-center">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-md flex flex-col space-y-sm card-shadow hover:translate-y-[-4px] transition-transform duration-300">
+<div class="aspect-square bg-surface-container rounded-lg flex items-center justify-center overflow-hidden mb-2">
+<img class="object-contain w-full h-full p-4" data-alt="Vibrant Vitamin C tablet container photographed in a clean, high-key studio environment. Natural lighting, focus on health and wellness. Pristine presentation with high-quality gloss finish on the product bottle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdH_AG8y5XeDzFIAHMHWtDs_KrnFuGlpRdMtC4ubNvAcMu5G7eB0KKL2CNcaI4GXFcc7Xi65mNGCFzocqZVtFsVFnSC-PgyZRn5NfjM6NamWz8VXCeQyUPuWA7YGcyprplneut79J9PJus09Rj1tvauY0aWTLCdHYNpOmHSYerxrus7ejol6EWwEUK9NqsDV9JMIMx7J_XG7HMH9Z7ySvtmMJd_u2CKAP5DWpRJZtJwEZS5-OAe2KH5Q"/>
+</div>
+<div class="flex-grow">
+<h3 class="font-h3 text-h3 text-on-surface leading-tight">Vitamin C Tablets</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Immunity • 30 Tablets</p>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-h3 text-h3 text-on-surface">₹85.00</span>
+<button class="bg-primary text-on-primary p-2 rounded-lg active:scale-90 transition-transform flex items-center justify-center">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<script src="../shared/js/navigation.js"></script>
+<script src="js/main.js"></script>
+</body></html>

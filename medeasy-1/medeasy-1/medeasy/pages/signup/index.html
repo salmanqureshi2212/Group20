@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+  <title>MedEasy - Create Account</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="../home-dashboard/js/tailwind-config.js" id="tailwind-config"></script>
+  <style>
+    body { font-family: 'Geist', sans-serif; }
+    .input-field {
+      width: 100%; padding: 12px 16px 12px 48px;
+      border: 1.5px solid #bdcaba; border-radius: 10px;
+      font-size: 15px; outline: none; transition: border-color .2s, box-shadow .2s;
+      background: #fff; color: #0b1c30;
+      box-sizing: border-box;
+    }
+    .input-field:focus { border-color: #006b2c; box-shadow: 0 0 0 3px rgba(0,107,44,.1); }
+    .input-field.error { border-color: #ba1a1a; box-shadow: 0 0 0 3px rgba(186,26,26,.08); }
+    .field-error { font-size: 12px; color: #ba1a1a; margin-top: 4px; display: none; }
+    .field-error.show { display: block; }
+    .strength-bar { height: 4px; border-radius: 4px; transition: width .3s, background .3s; }
+    .blob1 { position:fixed; top:-120px; right:-120px; width:420px; height:420px; background:radial-gradient(circle, rgba(0,107,44,.1) 0%, transparent 70%); border-radius:50%; pointer-events:none; z-index:0; }
+    .blob2 { position:fixed; bottom:-100px; left:-100px; width:360px; height:360px; background:radial-gradient(circle, rgba(107,255,143,.13) 0%, transparent 70%); border-radius:50%; pointer-events:none; z-index:0; }
+  </style>
+</head>
+<body class="bg-background min-h-screen flex items-center justify-center px-4 py-8">
+  <div class="blob1"></div>
+  <div class="blob2"></div>
+
+  <div class="relative z-10 w-full max-w-lg">
+    <div class="bg-white rounded-2xl shadow-[0px_8px_40px_rgba(0,107,44,0.12)] border border-outline-variant/30 p-8 md:p-10">
+
+      <!-- Logo -->
+      <div class="flex items-center justify-center gap-3 mb-6">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" style="width:40px;height:40px;" aria-hidden="true">
+          <rect width="48" height="48" rx="10" fill="#16a34a"/>
+          <path d="M19 10h10v10h10v10H29v10H19V30H9V20h10z" fill="#22c55e"/>
+          <path d="M8 30 Q18 18 38 16" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M10 34 Q22 20 40 20" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+        </svg>
+        <span style="font-size:24px;font-weight:700;color:#006b2c;">MedEasy</span>
+      </div>
+
+      <h1 style="font-size:22px;font-weight:700;color:#0b1c30;text-align:center;margin-bottom:4px;">Create your account</h1>
+      <p style="font-size:14px;color:#3e4a3d;text-align:center;margin-bottom:28px;">Your trusted healthcare companion</p>
+
+      <form id="signup-form" novalidate>
+
+        <!-- Full Name -->
+        <div style="margin-bottom:16px;">
+          <label style="font-size:13px;font-weight:600;color:#0b1c30;display:block;margin-bottom:6px;" for="fullname">Full Name</label>
+          <div style="position:relative;">
+            <span class="material-symbols-outlined" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:20px;color:#6e7b6c;pointer-events:none;">person</span>
+            <input class="input-field" id="fullname" type="text" placeholder="Arjun Mehta" autocomplete="name"/>
+          </div>
+          <p class="field-error" id="fullname-error">Please enter your full name (at least 2 words).</p>
+        </div>
+
+        <!-- Phone -->
+        <div style="margin-bottom:16px;">
+          <label style="font-size:13px;font-weight:600;color:#0b1c30;display:block;margin-bottom:6px;" for="phone">Mobile Number</label>
+          <div style="position:relative;">
+            <span class="material-symbols-outlined" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:20px;color:#6e7b6c;pointer-events:none;">phone</span>
+            <input class="input-field" id="phone" type="tel" placeholder="10-digit mobile number" autocomplete="tel" maxlength="10"/>
+          </div>
+          <p class="field-error" id="phone-error">Please enter a valid 10-digit Indian mobile number.</p>
+        </div>
+
+        <!-- Email -->
+        <div style="margin-bottom:16px;">
+          <label style="font-size:13px;font-weight:600;color:#0b1c30;display:block;margin-bottom:6px;" for="email">Email Address</label>
+          <div style="position:relative;">
+            <span class="material-symbols-outlined" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:20px;color:#6e7b6c;pointer-events:none;">mail</span>
+            <input class="input-field" id="email" type="email" placeholder="you@example.com" autocomplete="email"/>
+          </div>
+          <p class="field-error" id="email-error">Please enter a valid email address.</p>
+        </div>
+
+        <!-- Password -->
+        <div style="margin-bottom:6px;">
+          <label style="font-size:13px;font-weight:600;color:#0b1c30;display:block;margin-bottom:6px;" for="password">Password</label>
+          <div style="position:relative;">
+            <span class="material-symbols-outlined" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:20px;color:#6e7b6c;pointer-events:none;">lock</span>
+            <input class="input-field" id="password" type="password" placeholder="Create a strong password" autocomplete="new-password"/>
+            <button type="button" id="toggle-password" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#6e7b6c;display:flex;align-items:center;">
+              <span class="material-symbols-outlined" style="font-size:20px;">visibility</span>
+            </button>
+          </div>
+          <!-- Password rules shown on focus -->
+          <div id="password-rules" style="display:none;margin-top:10px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px 12px;gap:6px;flex-direction:column;">
+            <p style="font-size:11px;font-weight:600;color:#3e4a3d;margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em;">Password must have:</p>
+            <div class="rule" id="rule-length"  style="display:flex;align-items:center;gap:6px;font-size:13px;color:#6e7b6c;">
+              <span class="material-symbols-outlined rule-icon" style="font-size:16px;">radio_button_unchecked</span> At least 8 characters
+            </div>
+            <div class="rule" id="rule-number"  style="display:flex;align-items:center;gap:6px;font-size:13px;color:#6e7b6c;">
+              <span class="material-symbols-outlined rule-icon" style="font-size:16px;">radio_button_unchecked</span> At least one number
+            </div>
+            <div class="rule" id="rule-special" style="display:flex;align-items:center;gap:6px;font-size:13px;color:#6e7b6c;">
+              <span class="material-symbols-outlined rule-icon" style="font-size:16px;">radio_button_unchecked</span> At least one special character (!@#$…)
+            </div>
+            <div class="rule" id="rule-upper"   style="display:flex;align-items:center;gap:6px;font-size:13px;color:#6e7b6c;">
+              <span class="material-symbols-outlined rule-icon" style="font-size:16px;">radio_button_unchecked</span> At least one uppercase letter
+            </div>
+          </div>
+          <p class="field-error" id="password-error">Password must be at least 8 characters with a number and special character.</p>
+        </div>
+        <!-- Strength indicator -->
+        <div style="margin-bottom:16px;">
+          <div style="height:4px;background:#e5eeff;border-radius:4px;overflow:hidden;margin-top:6px;">
+            <div class="strength-bar" id="strength-bar" style="width:0%;background:#ba1a1a;"></div>
+          </div>
+          <p id="strength-label" style="font-size:11px;color:#6e7b6c;margin-top:4px;"></p>
+        </div>
+
+        <!-- Confirm Password -->
+        <div style="margin-bottom:20px;">
+          <label style="font-size:13px;font-weight:600;color:#0b1c30;display:block;margin-bottom:6px;" for="confirm-password">Confirm Password</label>
+          <div style="position:relative;">
+            <span class="material-symbols-outlined" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:20px;color:#6e7b6c;pointer-events:none;">lock_reset</span>
+            <input class="input-field" id="confirm-password" type="password" placeholder="Re-enter your password" autocomplete="new-password"/>
+          </div>
+          <p class="field-error" id="confirm-error">Passwords do not match.</p>
+        </div>
+
+        <!-- Terms -->
+        <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:24px;">
+          <input type="checkbox" id="terms" style="width:18px;height:18px;margin-top:2px;accent-color:#006b2c;flex-shrink:0;"/>
+          <label for="terms" style="font-size:13px;color:#3e4a3d;line-height:1.5;">
+            I agree to MedEasy's <a href="#" style="color:#006b2c;font-weight:600;">Terms of Service</a> and <a href="#" style="color:#006b2c;font-weight:600;">Privacy Policy</a>, including the processing of my health data.
+          </label>
+        </div>
+        <p class="field-error" id="terms-error" style="margin-top:-16px;margin-bottom:16px;">You must agree to the terms to continue.</p>
+
+        <button type="submit" id="signup-btn" style="width:100%;background:#006b2c;color:#fff;font-size:16px;font-weight:700;padding:14px;border-radius:12px;border:none;cursor:pointer;transition:background .2s;display:flex;align-items:center;justify-content:center;gap:8px;">
+          <span class="material-symbols-outlined" style="font-size:20px;">person_add</span>
+          Create Account
+        </button>
+      </form>
+
+      <div style="display:flex;align-items:center;gap:12px;margin:24px 0;">
+        <div style="flex:1;height:1px;background:#e5eeff;"></div>
+        <span style="font-size:12px;color:#6e7b6c;text-transform:uppercase;letter-spacing:.06em;">or</span>
+        <div style="flex:1;height:1px;background:#e5eeff;"></div>
+      </div>
+
+      <p style="text-align:center;font-size:14px;color:#3e4a3d;">
+        Already have an account?
+        <a href="../login/index.html" style="color:#006b2c;font-weight:700;text-decoration:none;margin-left:4px;">Sign in</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    'use strict';
+
+    // Redirect if already logged in
+    if (localStorage.getItem('me_session') === '1') {
+      window.location.href = '../home-dashboard/index.html';
+    }
+
+    var toggleBtn = document.getElementById('toggle-password');
+    var passEl    = document.getElementById('password');
+    var confirmEl = document.getElementById('confirm-password');
+    var bar       = document.getElementById('strength-bar');
+    var label     = document.getElementById('strength-label');
+    var rules     = document.getElementById('password-rules');
+
+    toggleBtn.addEventListener('click', function () {
+      var isText = passEl.type === 'text';
+      passEl.type = isText ? 'password' : 'text';
+      toggleBtn.querySelector('.material-symbols-outlined').textContent = isText ? 'visibility' : 'visibility_off';
+    });
+
+    // Show rules on focus, hide on blur if field is empty
+    passEl.addEventListener('focus', function () {
+      rules.style.display = 'flex';
+    });
+    passEl.addEventListener('blur', function () {
+      if (!passEl.value) rules.style.display = 'none';
+    });
+
+    function setRule(id, passed) {
+      var el = document.getElementById(id);
+      var icon = el.querySelector('.rule-icon');
+      if (passed) {
+        el.style.color = '#16a34a';
+        icon.textContent = 'check_circle';
+        icon.style.color = '#16a34a';
+      } else {
+        el.style.color = '#6e7b6c';
+        icon.textContent = 'radio_button_unchecked';
+        icon.style.color = '#6e7b6c';
+      }
+    }
+
+    function showErr(fId, eId) {
+      var f = document.getElementById(fId), e = document.getElementById(eId);
+      if (f) f.classList.add('error');
+      if (e) e.classList.add('show');
+    }
+    function clearErr(fId, eId) {
+      var f = document.getElementById(fId), e = document.getElementById(eId);
+      if (f) f.classList.remove('error');
+      if (e) e.classList.remove('show');
+    }
+
+    function validateEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }
+    function validatePhone(v) { return /^[6-9]\d{9}$/.test(v.trim()); }
+    function validatePassword(v) { return v.length >= 8 && /\d/.test(v) && /[^a-zA-Z0-9]/.test(v); }
+
+    // Password strength + rules
+    passEl.addEventListener('input', function () {
+      var v = passEl.value;
+      clearErr('password', 'password-error');
+
+      // Tick rules
+      setRule('rule-length',  v.length >= 8);
+      setRule('rule-number',  /\d/.test(v));
+      setRule('rule-special', /[^a-zA-Z0-9]/.test(v));
+      setRule('rule-upper',   /[A-Z]/.test(v));
+
+      var score = 0;
+      if (v.length >= 8)           score++;
+      if (/[A-Z]/.test(v))         score++;
+      if (/\d/.test(v))            score++;
+      if (/[^a-zA-Z0-9]/.test(v)) score++;
+      var colors = ['#ba1a1a','#f59e0b','#22c55e','#16a34a'];
+      var labels = ['Weak','Fair','Good','Strong'];
+      var pct    = ['25%','50%','75%','100%'];
+      if (v.length === 0) { bar.style.width = '0%'; label.textContent = ''; return; }
+      var i = Math.max(0, score - 1);
+      bar.style.width = pct[i]; bar.style.background = colors[i];
+      label.textContent = labels[i]; label.style.color = colors[i];
+    });
+
+    // Live clear errors
+    ['fullname','phone','email','confirm-password'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.addEventListener('input', function () { clearErr(id, id+'-error'); });
+    });
+    document.getElementById('terms').addEventListener('change', function () {
+      document.getElementById('terms-error').classList.remove('show');
+    });
+
+    document.getElementById('signup-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name    = document.getElementById('fullname').value.trim();
+      var phone   = document.getElementById('phone').value.trim();
+      var email   = document.getElementById('email').value.trim();
+      var pass    = passEl.value;
+      var confirm = confirmEl.value;
+      var terms   = document.getElementById('terms').checked;
+      var ok = true;
+
+      if (!name || name.split(' ').filter(Boolean).length < 2) { showErr('fullname','fullname-error'); ok=false; }
+      if (!validatePhone(phone))    { showErr('phone','phone-error'); ok=false; }
+      if (!validateEmail(email))    { showErr('email','email-error'); ok=false; }
+      if (!validatePassword(pass))  { showErr('password','password-error'); ok=false; }
+      if (pass !== confirm)         { showErr('confirm-password','confirm-error'); ok=false; }
+      if (!terms) { document.getElementById('terms-error').classList.add('show'); ok=false; }
+      if (!ok) return;
+
+      // Check duplicate
+      var existing = localStorage.getItem('me_user');
+      if (existing) {
+        var u = JSON.parse(existing);
+        if (u.email.toLowerCase() === email.toLowerCase()) {
+          showErr('email','email-error');
+          document.getElementById('email-error').textContent = 'An account with this email already exists.';
+          return;
+        }
+      }
+
+      // Save user
+      var nameParts = name.split(' ');
+      var user = {
+        fullName:  name,
+        firstName: nameParts[0],
+        lastName:  nameParts.slice(1).join(' '),
+        email:     email,
+        phone:     phone,
+        password:  pass,
+        joined:    new Date().toLocaleDateString('en-IN', { month:'long', year:'numeric' })
+      };
+      localStorage.setItem('me_user', JSON.stringify(user));
+      // Do NOT auto-login — send to login page to sign in
+      window.location.href = '../login/index.html';
+    });
+  })();
+  </script>
+</body>
+</html>

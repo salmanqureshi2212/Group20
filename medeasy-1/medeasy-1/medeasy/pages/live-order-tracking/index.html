@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Track Your Order | MedEasy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config" src="js/tailwind-config.js"></script>
+<link href="css/style.css" rel="stylesheet"/>
+
+  </head>
+<body class="antialiased text-on-surface">
+<!-- Top AppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop h-16 bg-surface dark:bg-surface-dim shadow-[0px_4px_20px_rgba(22,163,74,0.05)]">
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary p-xs active:scale-95 duration-150 rounded-full hover:bg-surface-container-low transition-colors">menu</button>
+<h1 class="font-display text-h2-mobile font-bold text-primary dark:text-secondary-fixed-dim flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-7 h-7 flex-shrink-0" aria-hidden="true">
+                <rect width="48" height="48" rx="10" fill="#16a34a"/>
+                <path d="M19 10h10v10h10v10H29v10H19V30H9V20h10z" fill="#22c55e"/>
+                <path d="M8 30 Q18 18 38 16" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+                <path d="M10 34 Q22 20 40 20" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+              </svg>
+              MedEasy
+            </h1>
+</div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary p-xs active:scale-95 duration-150 rounded-full hover:bg-surface-container-low transition-colors">shopping_cart</button>
+</div>
+</header>
+<main class="pt-16 pb-8 min-h-screen overflow-x-hidden">
+<!-- Live Tracking Hero Section -->
+<section class="relative h-[397px] w-full">
+<div class="absolute inset-0 z-0 overflow-hidden">
+  <!-- OpenStreetMap embed — Mumbai delivery route area -->
+  <iframe
+    src="https://www.openstreetmap.org/export/embed.html?bbox=72.8350%2C19.0650%2C72.8750%2C19.0950&amp;layer=mapnik"
+    class="w-full h-full border-0 opacity-80"
+    loading="lazy"
+    title="Live order tracking map — Mumbai"
+    aria-label="Live map showing delivery route in Mumbai, India"
+  ></iframe>
+  <div class="absolute inset-0 map-gradient pointer-events-none"></div>
+</div>
+<!-- Tracking Overlay Info -->
+<div class="relative z-10 px-container-margin-mobile pt-lg">
+<div class="glass-panel p-md rounded-xl shadow-[0px_4px_20px_rgba(22,163,74,0.08)] flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-caption text-caption text-on-surface-variant">Estimated Arrival</p>
+<h2 class="font-display text-h1-mobile text-primary">12:30 PM</h2>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-sm py-1 rounded-full font-caption text-caption font-bold">
+                            8 mins away
+                        </div>
+</div>
+<div class="w-full h-1 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-3/4 animate-[pulse_2s_infinite]"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">delivery_dining</span>
+                        Your order is currently in transit
+                    </p>
+</div>
+</div>
+<!-- Moving Marker Interaction Simulation -->
+<div class="absolute top-1/2 left-1/3 z-20 flex flex-col items-center">
+<div class="bg-primary text-white p-2 rounded-full shadow-lg animate-bounce">
+<span class="material-symbols-outlined">delivery_dining</span>
+</div>
+<div class="w-2 h-2 bg-primary/30 rounded-full blur-sm mt-1"></div>
+</div>
+</section>
+<!-- Order Content Container -->
+<div class="px-container-margin-mobile -mt-8 relative z-30">
+<!-- Delivery Partner Card -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0px_4px_20px_rgba(22,163,74,0.05)] flex items-center justify-between mb-lg">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-fixed">
+<img class="w-full h-full object-cover" data-alt="Close up professional headshot of a friendly delivery partner, a male in his late 20s with a kind smile, wearing a professional green uniform polo shirt. Studio lighting, soft bokeh background, high-end commercial photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8hj7XbvActwufbHSwG06IrrLXBHEyVdUvT0Tb-v3fvtxRkDWtWX3AH9IEvOXFOCf8lIzonSlFEGP7zM4v9VaFVAJf5iNz9mTt2a8nx6Uv-XQj0JRHG151Ts7rNmqfTycpbZg5y1hYewGKKMQo6lqJ4Gv5qWZsf5rSI5Il6kfQRPYxxEyDUNHkIltm4mGzmUu2m-msWQzaHoy96X0T30r3WVr4twoghSmJTdRYSuVQ7QUuLmB0HFzU9Q"/>
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Rohit Sharma</h3>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-caption text-caption text-on-surface font-bold">4.8</span>
+<span class="font-caption text-caption text-on-surface-variant">Delivery Partner</span>
+</div>
+</div>
+</div>
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-primary text-white shadow-md active:scale-90 transition-transform">
+<span class="material-symbols-outlined">call</span>
+</button>
+</div>
+<!-- Order Status Vertical Timeline -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0px_4px_20px_rgba(22,163,74,0.05)] mb-lg">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-h3 text-h3 text-on-surface">Order Status</h3>
+<p class="font-caption text-caption text-on-surface-variant">#MD1245786</p>
+</div>
+<div class="flex flex-col gap-lg pl-2">
+<!-- Step 1: Placed -->
+<div class="relative flex gap-md timeline-step active">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center z-10 shrink-0">
+<span class="material-symbols-outlined text-white text-[16px]" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<div class="flex flex-col">
+<p class="font-body-md text-body-md text-on-surface font-bold">Order Placed</p>
+<p class="font-caption text-caption text-on-surface-variant">12 Jul, 09:41 AM</p>
+</div>
+</div>
+<!-- Step 2: Confirmed -->
+<div class="relative flex gap-md timeline-step active">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center z-10 shrink-0">
+<span class="material-symbols-outlined text-white text-[16px]" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<div class="flex flex-col">
+<p class="font-body-md text-body-md text-on-surface font-bold">Confirmed</p>
+<p class="font-caption text-caption text-on-surface-variant">12 Jul, 09:45 AM</p>
+</div>
+</div>
+<!-- Step 3: In Transit -->
+<div class="relative flex gap-md timeline-step active">
+<div class="w-6 h-6 rounded-full bg-primary-container flex items-center justify-center z-10 shrink-0 border-2 border-primary-fixed">
+<span class="material-symbols-outlined text-white text-[16px]">local_shipping</span>
+</div>
+<div class="flex flex-col">
+<p class="font-body-md text-body-md text-primary font-bold">In Transit</p>
+<p class="font-caption text-caption text-on-surface-variant">Started at 10:15 AM</p>
+</div>
+</div>
+<!-- Step 4: Out for Delivery -->
+<div class="relative flex gap-md timeline-step">
+<div class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center z-10 shrink-0">
+<span class="material-symbols-outlined text-outline text-[16px]">home_pin</span>
+</div>
+<div class="flex flex-col">
+<p class="font-body-md text-body-md text-on-surface-variant">Out for Delivery</p>
+<p class="font-caption text-caption text-on-surface-variant">Pending</p>
+</div>
+</div>
+<!-- Step 5: Delivered -->
+<div class="relative flex gap-md timeline-step">
+<div class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center z-10 shrink-0">
+<span class="material-symbols-outlined text-outline text-[16px]">verified</span>
+</div>
+<div class="flex flex-col">
+<p class="font-body-md text-body-md text-on-surface-variant">Delivered</p>
+<p class="font-caption text-caption text-on-surface-variant">Pending</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Order Summary Collapsible -->
+<details class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(22,163,74,0.05)] mb-lg group">
+<summary class="flex items-center justify-between p-md cursor-pointer list-none">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">description</span>
+<h3 class="font-h3 text-h3 text-on-surface">Order Summary</h3>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="px-md pb-md flex flex-col gap-md">
+<div class="flex items-center gap-md border-t border-surface-variant pt-md">
+<div class="w-16 h-16 bg-surface-container-low rounded-lg p-xs shrink-0 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-contain" data-alt="A premium health essentials kit featuring various pharmaceutical-grade vitamin bottles and blister packs arranged neatly on a clean white surface with soft green shadows. The products have minimalist, professional packaging typical of a high-end healthcare brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCs8Cm70Yq9iVeZSQzIyGNH7W-EdnFOiDe_QO98Azir6JRYHyoHn24c9CkNxkaCPohfL6_d5trG5JWXlVU-to0GVLFuaBSV_53lg8aqKk2vDEdGptnPpFxy9ZIwrqOy6dxahqPkxm7MSR6vKeuLb6yZHdMmECYPCqTvv_Ur3LzXpSXIQtpwyw1ESBcIzicyzMlLCrU3Lb_eyqlHyc-IPCdV5JyWuHoKB4xKZ1evhyC-XuSUc4mcm0zc2w"/>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-surface font-bold">Health Essentials Pack</p>
+<p class="font-caption text-caption text-on-surface-variant">12 Items • Recurring Refill</p>
+<p class="font-body-md text-body-md text-primary font-bold mt-1">₹1,245.00</p>
+</div>
+</div>
+<div class="flex justify-between py-sm border-t border-outline-variant/30">
+<span class="text-on-surface-variant font-body-sm text-body-sm">Payment Method</span>
+<div class="flex items-center gap-xs">
+<span class="font-bold text-on-surface text-body-sm">UPI</span>
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+</div>
+</div>
+<div class="flex justify-between py-sm border-t border-outline-variant/30 font-bold text-on-surface">
+<span class="text-body-md font-h3">Total Amount</span>
+<span class="text-body-md font-h3 text-primary">₹1,245.00</span>
+</div>
+</div>
+</details>
+<!-- Promo Banner -->
+<div class="relative overflow-hidden bg-primary p-md rounded-xl shadow-lg mb-lg flex items-center justify-between">
+<div class="relative z-10">
+<h4 class="text-white font-h3 text-h3 leading-tight">Save 20% on<br/>Health Products</h4>
+<p class="text-primary-fixed font-caption text-caption mt-1">Use code: <span class="bg-white/20 px-1 rounded">HEALTH20</span></p>
+</div>
+<button class="relative z-10 bg-white text-primary px-md py-sm rounded-full font-bold text-body-sm active:scale-95 transition-transform shadow-md">
+                    Shop Now
+                </button>
+<div class="absolute -right-4 -bottom-4 opacity-20">
+<span class="material-symbols-outlined text-[120px] text-white">medical_services</span>
+</div>
+</div>
+<!-- Need Help Section -->
+<div class="bg-surface-container-low p-md rounded-xl flex flex-col items-center text-center gap-sm mb-lg">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined">support_agent</span>
+</div>
+<h4 class="font-h3 text-h3 text-on-surface">Need Help?</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-[240px]">Our support team is available 24/7 to assist with your medical delivery.</p>
+<button class="mt-sm w-full py-md bg-white border border-outline-variant rounded-full text-primary font-bold active:bg-primary-container/10 transition-colors">
+                    Contact Support
+                </button>
+</div>
+<!-- Footer Perks -->
+<div class="flex flex-wrap gap-md justify-between mb-12">
+<div class="flex flex-col items-center text-center flex-1 min-w-[100px]">
+<span class="material-symbols-outlined text-primary mb-1">security</span>
+<p class="font-caption text-caption text-on-surface font-bold">Secure &amp; Safe</p>
+</div>
+<div class="flex flex-col items-center text-center flex-1 min-w-[100px]">
+<span class="material-symbols-outlined text-primary mb-1">schedule</span>
+<p class="font-caption text-caption text-on-surface font-bold">On-time Delivery</p>
+</div>
+<div class="flex flex-col items-center text-center flex-1 min-w-[100px]">
+<span class="material-symbols-outlined text-primary mb-1">verified</span>
+<p class="font-caption text-caption text-on-surface font-bold">100% Genuine</p>
+</div>
+</div>
+</div>
+</main>
+
+<script src="../shared/js/navigation.js"></script>
+<script src="js/main.js"></script>
+</body></html>

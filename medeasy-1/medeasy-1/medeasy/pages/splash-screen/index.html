@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>MedEasy - Your Pharmacy, Delivered Fast</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config" src="js/tailwind-config.js"></script>
+<link href="css/style.css" rel="stylesheet"/>
+
+  </head>
+<body class="bg-background text-on-background font-body-md clinical-bg h-screen w-full overflow-hidden flex flex-col justify-center items-center">
+<!-- Splash Screen Suppression: Navigation shells are hidden for this transactional/linear entry state -->
+<main class="relative flex flex-col items-center justify-between h-full w-full py-20 px-container-margin-mobile md:px-container-margin-desktop">
+<!-- Center Content: Logo & Wordmark -->
+<div class="flex-1 flex flex-col items-center justify-center space-y-md">
+<!-- Animated Medical Icon -->
+<div class="relative mb-lg">
+<div class="absolute inset-0 bg-primary/10 rounded-full blur-2xl scale-150 animate-pulse-soft"></div>
+<div class="relative bg-white w-24 h-24 md:w-32 md:h-32 rounded-3xl shadow-[0px_4px_20px_rgba(22,163,74,0.08)] flex items-center justify-center border border-primary/5 transition-transform duration-700 animate-pulse-soft">
+<span class="material-symbols-outlined text-primary text-[48px] md:text-[64px]" style="font-variation-settings: 'FILL' 1;">
+                        medical_services
+                    </span>
+</div>
+</div>
+<!-- Brand Typography -->
+<div class="text-center">
+<h1 class="font-display text-h1-mobile md:text-h1 text-primary tracking-tight flex items-center justify-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0" aria-hidden="true">
+                      <rect width="48" height="48" rx="10" fill="#16a34a"/>
+                      <path d="M19 10h10v10h10v10H29v10H19V30H9V20h10z" fill="#22c55e"/>
+                      <path d="M8 30 Q18 18 38 16" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+                      <path d="M10 34 Q22 20 40 20" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+                    </svg>
+                    MedEasy
+                </h1>
+<p class="font-body-md text-on-surface-variant/70 mt-xs tracking-wide">
+                    HEALTHCARE REIMAGINED
+                </p>
+</div>
+</div>
+<!-- Bottom Content: Loading & Value Prop -->
+<div class="w-full max-w-xs flex flex-col items-center space-y-lg">
+<!-- Custom Loading Indicator -->
+<div class="w-full h-1 bg-surface-container-high rounded-full overflow-hidden relative">
+<div class="absolute top-0 left-0 h-full w-1/3 bg-primary rounded-full loading-progress shadow-[0_0_8px_rgba(0,107,44,0.3)]"></div>
+</div>
+<!-- Tagline -->
+<div class="text-center">
+<p class="font-body-md text-on-surface font-medium animate-pulse">
+                    Your Pharmacy, Delivered Fast
+                </p>
+<div class="flex items-center justify-center mt-sm space-x-sm opacity-60">
+<span class="material-symbols-outlined text-sm" style="font-size: 16px;">verified_user</span>
+<span class="text-caption font-caption uppercase tracking-widest">Secure &amp; Encrypted</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Interactive Atmospheric Layer -->
+<div class="fixed inset-0 pointer-events-none z-[-1] opacity-40">
+<!-- Soft Floating Blobs for Medical Aesthetic -->
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-secondary-fixed-dim/10 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[-5%] right-[-5%] w-[30%] h-[30%] bg-primary-fixed/20 rounded-full blur-[100px]"></div>
+</div>
+<script src="../shared/js/navigation.js"></script>
+<script src="js/main.js"></script>
+</body></html>
